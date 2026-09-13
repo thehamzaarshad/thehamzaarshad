@@ -3,14 +3,14 @@
 <!---
 <div align="center">
 
-# Hi, I'm Md Abu Kayser 👋
+# Hi, I'm Hamza Arshad 👋
 
 ### Full-Stack Engineer | React · Next.js · Node.js · Go · TypeScript
 
 I build clean, type-safe, production-ready applications - and I'm currently open to **remote roles across the US, Canada, and the EU**.
 
-<img src="https://komarev.com/ghpvc/?username=md-abu-kayser&label=Profile%20Views&color=0e75b6&style=flat" alt="profile views" />
-<img src="https://img.shields.io/github/followers/md-abu-kayser?label=Followers&style=social" alt="followers" />
+<img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=Profile%20Views&color=0e75b6&style=flat" alt="profile views" />
+<img src="https://img.shields.io/github/followers/thehamzaarshad?label=Followers&style=social" alt="followers" />
 
 </div>
 
@@ -52,7 +52,7 @@ I'm rebuilding my engineering path through focused, production-minded work: open
 A production-style store with authentication, sandbox payments, product admin, and full CI/CD.
 
 ```bash
-git clone https://github.com/md-abu-kayser/<coming-soon>.git
+git clone https://github.com/thehamzaarshad/<coming-soon>.git
 cd <coming-soon>
 cp .env.example .env
 docker-compose up --build
@@ -74,16 +74,16 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 
 <div align="center">
 
-  <a href="https://github.com/md-abu-kayser">
+  <a href="https://github.com/thehamzaarshad">
     <img
-      src="https://komarev.com/ghpvc/?username=md-abu-kayser&label=PROFILE%20VIEWS&color=0e75b6&style=for-the-badge"
+      src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=0e75b6&style=for-the-badge"
       alt="Profile Views"
     />
   </a>
 
-  <a href="https://github.com/md-abu-kayser?tab=followers">
+  <a href="https://github.com/thehamzaarshad?tab=followers">
     <img
-      src="https://img.shields.io/github/followers/md-abu-kayser?label=FOLLOWERS&style=for-the-badge&logo=github"
+      src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github"
       alt="GitHub Followers"
     />
   </a>
@@ -99,12 +99,12 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 <p align="center">
   <a href="https://streak-stats.demolab.com/">
     <img
-      src="https://streak-stats.demolab.com/?user=md-abu-kayser&theme=dark&hide_border=false&border=8B949E&background=161B22&ring=00CFFF&fire=00CFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00CFFF&sideLabels=C9D1D9&dates=8B949E&mode=daily&locale=en&disable_animations=true"
+      src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=8B949E&background=161B22&ring=00CFFF&fire=00CFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00CFFF&sideLabels=C9D1D9&dates=8B949E&mode=daily&locale=en&disable_animations=true"
       alt="GitHub Streak"
       width="49%"
     />
   </a><img
-src="https://github-stats-extended.vercel.app/api/top-langs/?username=md-abu-kayser&layout=compact&card_width=420&theme=dark&hide_border=false&border_color=8B949E&title_color=FFFFFF&text_color=C9D1D9&bg_color=161B22&custom_title=Technology%20Footprint"
+src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_color=8B949E&title_color=FFFFFF&text_color=C9D1D9&bg_color=161B22&custom_title=Technology%20Footprint"
 alt="Technology Footprint"
 width="49%"
 />
@@ -118,8 +118,8 @@ width="49%"
 <p align="center">
   <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
     <img
-      src="https://fabianocouto-activity-graph.vercel.app/graph/?username=md-abu-kayser&theme=react-dark&hide_border=true&bg_color=0D1117&color=C9D1D9&line=00CFFF&point=FFFFFF&area=true"
-      alt="Md Abu Kayser's GitHub Contribution Analytics"
+      src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&theme=react-dark&hide_border=true&bg_color=0D1117&color=C9D1D9&line=00CFFF&point=FFFFFF&area=true"
+      alt="Hamza Arshad GitHub Contribution Analytics"
       width="98%"
     />
   </a>
@@ -137,16 +137,16 @@ width="49%"
 
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/md-abu-kayser/md-abu-kayser/output/github-contribution-grid-snake-dark.svg"
+    srcset="https://raw.githubusercontent.com/md-abu-kayser/thehamzaarshad/output/github-contribution-grid-snake-dark.svg"
   />
 
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/md-abu-kayser/md-abu-kayser/output/github-contribution-grid-snake.svg"
+    srcset="https://raw.githubusercontent.com/md-abu-kayser/thehamzaarshad/output/github-contribution-grid-snake.svg"
   />
 
 <img
-    src="https://raw.githubusercontent.com/md-abu-kayser/md-abu-kayser/output/github-contribution-grid-snake.svg"
+    src="https://raw.githubusercontent.com/md-abu-kayser/thehamzaarshad/output/github-contribution-grid-snake.svg"
     alt="GitHub Contribution Activity - Last 365 Days"
     width="100%"
   />
@@ -162,7 +162,7 @@ width="49%"
 <p align="center">
   <img
     height="180em"
-    src="https://github-readme-stats-psi-smoky-68.vercel.app/api?username=md-abu-kayser&layout=compact&theme=dark&hide_border=false&border_color=8B949E&title_color=FFFFFF&text_color=C9D1D9&bg_color=161B22&cache_seconds=1800"
+    src="https://github-readme-stats-psi-smoky-68.vercel.app/api?username=thehamzaarshad&layout=compact&theme=dark&hide_border=false&border_color=8B949E&title_color=FFFFFF&text_color=C9D1D9&bg_color=161B22&cache_seconds=1800"
     alt="GitHub Engineering Stats"
   />
 </p>
@@ -175,7 +175,7 @@ width="49%"
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abu.kayser.official@gmail.com)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto: drhamzaarshad4@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINKEDIN)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://YOUR-PORTFOLIO.com)
 
