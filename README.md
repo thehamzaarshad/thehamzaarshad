@@ -140,31 +140,6 @@ width="49%"
 <!--                  CONTRIBUTION ACTIVITY                   -->
 <!-- ========================================================= -->
 
-## 🐍 Contribution Activity
-
-<div align="center">
-
-<picture>
-
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg"
-  />
-
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg"
-  />
-
-<img
-    src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg"
-    alt="GitHub Contribution Activity - Last 365 Days"
-    width="100%"
-  />
-
-</picture>
-
-</div>
 
 <!---
 
