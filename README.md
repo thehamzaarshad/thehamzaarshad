@@ -205,3 +205,15 @@ _Fun fact: I enjoy untangling gnarly coding challenges in my spare time._
 </div>
 
 --->
+
+
+
+
+
+
+<!-- Snake -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
+</picture>
