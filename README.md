@@ -184,7 +184,11 @@ _Fun fact: I enjoy untangling gnarly coding challenges in my spare time._
 
 
 
+## 🐍 Contribution Activity
 
+<div align="center">
+
+<picture>
 
 <!-- Snake -->
 <picture>
