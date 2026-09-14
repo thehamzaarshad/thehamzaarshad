@@ -189,6 +189,7 @@ _Fun fact: I enjoy untangling gnarly coding challenges in my spare time._
 <div align="center">
 
 <picture>
+
 <!-- Snake -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
