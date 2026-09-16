@@ -12,9 +12,6 @@
   </a>
 </p>
 
-</a><img src="https://github.com/vinkay215/vinkay215/blob/main/img/verified.gif?raw=true"width="22"/></h1>
-</div>  
-<div align="center">
 
 
 <!---
