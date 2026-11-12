@@ -45,7 +45,6 @@
 
 </div>
 
-<!-- EDIT: replace the placeholders below with your own details -->
 - 💼 I work as **[your role]** at **[company / university / freelance]**
 - 🔭 Currently working on **[project or focus]**
 - 🌱 Currently learning **[technology]**
@@ -53,7 +52,6 @@
 
 <div align="center">
 
-<!-- EDIT: keep only what you actually use -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-python-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-python-light.svg" alt="Python" />
@@ -69,7 +67,6 @@
 
 <br/>
 
-<!-- EDIT: add your real links (also edit the label inside assets/social-*.svg) -->
 <a href="https://github.com/thehamzaarshad"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-light.svg" alt="GitHub" />
@@ -100,7 +97,10 @@
 </picture>
 </h2>
 
-<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg-light.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%" />
+</picture>
 
 <sub>An ICU bedside monitor driven by my real GitHub activity. Refreshes every 3 hours via GitHub Actions.</sub>
 
@@ -169,7 +169,7 @@
 </picture>
 </h2>
 
-<a href="https://github.com/ashutosh00710/github-readme-activity-graph">
+<a href="https://github.com/fabianocouto/github-readme-activity-graph">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=20161F&color=DCA54C&line=DCA54C&point=DCA54C&area=true&area_color=DCA54C" />
   <img src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=FFFFFF&color=000000&line=B1901F&point=B1901F&area=true&area_color=B1901F" alt="Graph of my GitHub contributions over the last 31 days" width="98%" />
