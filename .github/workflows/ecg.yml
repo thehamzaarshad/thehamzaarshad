@@ -6,7 +6,7 @@ on:
       - scripts/ecg.py
       - .github/workflows/ecg.yml
   schedule:
-        - cron: "0 */3 * * *"
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,6 +22,7 @@ jobs:
       - run: |
           git config user.name "ecg-bot"
           git config user.email "ecg-bot@users.noreply.github.com"
-          git add assets/ecg.svg
+          git rm --cached --ignore-unmatch -q assets/ecg.svg
+          git add assets/ecg-dark.svg assets/ecg-light.svg
           git diff --cached --quiet || git commit -m "update ECG"
           git push

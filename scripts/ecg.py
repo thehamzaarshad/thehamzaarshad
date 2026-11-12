@@ -1,37 +1,23 @@
 """
 Contribution Pulse v3 - ICU bedside-monitor card driven by REAL GitHub data.
-
-Data   : GitHub GraphQL contribution calendar (365d, includes private if enabled)
-         + public Events API (timestamps, event types, repos)
-
-Vitals (all computed from your GitHub activity):
-  HR    heart rate  <- exponentially-decayed, weighted activity score (30h time constant)
-  SpO2  oxygen      <- consistency: active days in last 7d (70%) and 30d (30%)
-  NIBP  pressure    <- systolic = 7-day mean daily load, diastolic = 30-day baseline
-  RESP  resp. rate  <- active days in last 30d
-  HRV   variability <- RMSSD of day-to-day contribution changes (14d), the real HRV formula
-  NEWS2 early-warning score <- the actual NHS NEWS2 banding applied to HR/SpO2/SBP/RR
-Rhythm : inactivity -> bradycardia -> irregular (PVCs) -> asystole (7 days silent)
-
-Output: assets/ecg.svg  (SMIL-animated SVG, works inside a GitHub README <img>)
+Theme: gold (dark + light), writes assets/ecg-dark.svg and assets/ecg-light.svg
 
 Testing (no network / token needed):
     python3 scripts/ecg.py --demo all --out-dir demo       # open demo/index.html
-    python3 scripts/ecg.py --demo overload --out /tmp/o.svg
-    python3 scripts/ecg.py --demo normal --still --out /tmp/n.svg
+    python3 scripts/ecg.py --demo overload --out /tmp/o.svg   # -> /tmp/o-dark.svg, /tmp/o-light.svg
 States: normal tachy brady irregular critical spo2low overload bplow artifact leadsoff asystole
 """
-import os, sys, json, math, random, argparse, datetime, urllib.request
+import os, sys, re, json, math, random, argparse, datetime, urllib.request
 
 # ------------------------------------------------------------- geometry
 W, H = 1200, 420
-TX, TW = 24, 832                 # trace panel x / width
-PY, PH = 76, 268                 # trace panel y / height
-ECG_Y, PPG_Y = 165, 322          # baselines
-T_SWEEP = 5.2                    # seconds for the cursor to cross the panel
+TX, TW = 24, 832
+PY, PH = 76, 268
+ECG_Y, PPG_Y = 165, 322
+T_SWEEP = 5.2
 V = TW / T_SWEEP
-CYCLE = 2 * T_SWEEP              # two alternating sweeps (A, B)
-GAP = 64.0                       # erase bar width (px)
+CYCLE = 2 * T_SWEEP
+GAP = 64.0
 DT = 0.01
 N = int(round(T_SWEEP / DT))
 STEP = TW / N
@@ -45,9 +31,36 @@ TAU = 2 * math.pi
 clamp = lambda v, a, b: max(a, min(b, v))
 g = lambda dt, c, w: math.exp(-((dt - c) / w) ** 2)
 
-LEVEL_COL = {2: "#ff4d5e", 1: "#fbbf24"}
-THEME = {0: ("#22d3a0", "#38bdf8"), 1: ("#fbbf24", "#fb923c"), 2: ("#ff4d5e", "#ff8a5e")}
 MONO = "ui-monospace,Consolas,monospace"
+
+# ---------------------------------------------------------------- theme
+PALETTES = {
+  "dark": dict(
+    theme={0: ("#DCA54C", "#F0CB7A"), 1: ("#FF8A3D", "#FFB070"), 2: ("#FF4D5E", "#FF8A8A")},
+    level={2: "#FF4D5E", 1: "#FF8A3D"},
+    line="#DCA54C",
+    swap={"#0d1420": "#1A160C", "#05080e": "#0F0C06", "#070b12": "#130F08",
+          "#0b121c": "#211B0E", "#e6edf3": "#F5E9C8", "#6b7a8c": "#8C7C54",
+          "#8b98a8": "#A89868"}),
+  "light": dict(
+    theme={0: ("#B1901F", "#7A6212"), 1: ("#D9600F", "#B8480A"), 2: ("#D62839", "#B01E2E")},
+    level={2: "#D62839", 1: "#D9600F"},
+    line="#B1901F",
+    swap={"#0d1420": "#F9F6EE", "#05080e": "#F1EBD6", "#070b12": "#FFFFFF",
+          "#0b121c": "#FFFFFF", "#e6edf3": "#2B2410", "#6b7a8c": "#8A7A45",
+          "#8b98a8": "#6B5D2E"}),
+}
+
+def set_theme(name):
+    global THEME, LEVEL_COL, LINE, SWAP
+    p = PALETTES[name]
+    THEME, LEVEL_COL, LINE, SWAP = p["theme"], p["level"], p["line"], p["swap"]
+
+def skin(svg):
+    svg = svg.replace('stroke="#fff"', f'stroke="{LINE}"')
+    return re.sub("|".join(SWAP), lambda m: SWAP[m.group(0)], svg)
+
+set_theme("dark")
 
 # ------------------------------------------------------------------ data
 def _post_json(url, payload, token):
@@ -95,12 +108,11 @@ def activity_stats(events, cal, now):
         rows.append(((now - t).total_seconds() / 3600, t, e))
 
     daily = dict(cal)
-    if not daily:                                   # fallback: count public events per day
+    if not daily:
         for _, t, _ in rows:
             daily[t.date()] = daily.get(t.date(), 0) + 1
-    series = [daily.get(today - datetime.timedelta(days=k), 0) for k in range(89, -1, -1)]  # oldest -> today
+    series = [daily.get(today - datetime.timedelta(days=k), 0) for k in range(89, -1, -1)]
 
-    # time since last activity (events are precise, calendar is a fallback)
     hours = min((r[0] for r in rows), default=9999.0)
     past = [d for d, c in daily.items() if c > 0 and d <= today]
     if past:
@@ -112,7 +124,6 @@ def activity_stats(events, cal, now):
             h_cal = (now - datetime.datetime.combine(last, datetime.time(12), utc)).total_seconds() / 3600
         hours = min(hours, h_cal)
 
-    # HR score: decayed event weights, or decayed daily counts when events are missing
     s_ev = sum(WEIGHT.get(e["type"], 0.4) * math.exp(-age / 30) for age, _, e in rows)
     s_cal = sum(0.8 * c * math.exp(-k / 1.25) for k, c in enumerate(reversed(series[-14:])))
     score = max(s_ev, s_cal)
@@ -492,7 +503,6 @@ def render(S, user, now, rng, still=False):
     leads_txt = (f'<text x="{TX + TW // 2}" y="{ECG_Y - 18}" fill="{C}" font-size="13" font-weight="800" '
                  f'text-anchor="middle" letter-spacing="3" font-family="{MONO}">ECG LEADS OFF</text>') if leads_off else ""
 
-    # vitals cards
     nibp = f'{S["sys"]}/{S["dia"]}' if S["sys"] else "--/--"
     rr_v = S["rr"] if S["rr"] else "--"
     hrv_v = S["hrv"] if S["hrv"] is not None else "--"
@@ -504,7 +514,7 @@ def render(S, user, now, rng, still=False):
     elif nw >= 5:
         n_val, n_col, n_unit = nw, LEVEL_COL[1], "MEDIUM RISK"
     else:
-        n_val, n_col, n_unit = nw, "#22d3a0", "LOW RISK"
+        n_val, n_col, n_unit = nw, THEME[0][0], "LOW RISK"
     nibp_col = LEVEL_COL[1] if S["sys"] and (S["sys"] < 90 or S["sys"] >= 180) else "#e6edf3"
     cards = (card(876, 280, 64, "NIBP", nibp, "SYS/DIA mmHg", nibp_col, 20) +
              card(980, 280, 64, "RESP", rr_v, "RPM", "#e6edf3", 28) +
@@ -579,6 +589,18 @@ def render(S, user, now, rng, still=False):
 </g>
 </svg>'''
 
+# ----------------------------------------------------------------- output
+def write_themes(S, user, now, seed, still, out):
+    """Render once per theme: assets/ecg.svg -> assets/ecg-dark.svg + assets/ecg-light.svg"""
+    base, ext = os.path.splitext(out)
+    os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+    for name in ("dark", "light"):
+        set_theme(name)
+        svg = skin(render(S, user, now, random.Random(seed), still))
+        path = f"{base}-{name}{ext}"
+        open(path, "w", encoding="utf-8").write(svg)
+        print(f"{name:5s} {path} {len(svg) // 1024}KB")
+
 # ----------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -591,16 +613,15 @@ def main():
 
     if a.demo:
         names = list(DEMOS) if a.demo == "all" else [a.demo]
-        os.makedirs(a.out_dir if a.demo == "all" else os.path.dirname(a.out) or ".", exist_ok=True)
         cells = []
         for n in names:
             S = make_state(n, **DEMOS[n])
-            svg = render(S, "demo", now, random.Random(7), a.still)
-            path = os.path.join(a.out_dir, f"{n}.svg") if a.demo == "all" else a.out
-            open(path, "w", encoding="utf-8").write(svg)
+            out = os.path.join(a.out_dir, f"{n}.svg") if a.demo == "all" else a.out
+            write_themes(S, "demo", now, 7, a.still, out)
             alarms = ", ".join(t for _, t in S["alarms"]) or "-"
-            print(f"{n:10s} bpm={S['bpm']} spo2={S['spo2']} news={S['news']} level={S['level']} alarms=[{alarms}] size={len(svg) // 1024}KB")
-            cells.append(f'<figure><img src="{n}.svg"><figcaption>{n}</figcaption></figure>')
+            print(f"{n:10s} bpm={S['bpm']} spo2={S['spo2']} news={S['news']} level={S['level']} alarms=[{alarms}]")
+            cells.append(f'<figure><img src="{n}-dark.svg"><figcaption>{n} (dark)</figcaption></figure>'
+                         f'<figure style="background:#F9F6EE"><img src="{n}-light.svg"><figcaption>{n} (light)</figcaption></figure>')
         if a.demo == "all":
             open(os.path.join(a.out_dir, "index.html"), "w", encoding="utf-8").write(
                 '<!doctype html><meta charset="utf-8"><body style="background:#0d1117;color:#8b98a8;font:13px monospace;'
@@ -615,12 +636,9 @@ def main():
         events = []
     cal = fetch_calendar(user, token)
     S = state_from_activity(activity_stats(events, cal, now))
-    rng = random.Random(int(now.strftime("%Y%m%d%H")))
-    svg = render(S, user, now, rng, a.still)
-    os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
-    open(a.out, "w", encoding="utf-8").write(svg)
+    write_themes(S, user, now, int(now.strftime("%Y%m%d%H")), a.still, a.out)
     print(f"state={S['rhythm']} bpm={S['bpm']} spo2={S['spo2']} nibp={S['sys']}/{S['dia']} rr={S['rr']} "
-          f"hrv={S['hrv']} news2={S['news']} level={S['level']} size={len(svg) // 1024}KB")
+          f"hrv={S['hrv']} news2={S['news']} level={S['level']}")
 
 if __name__ == "__main__":
     main()
