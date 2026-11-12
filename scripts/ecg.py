@@ -38,9 +38,11 @@ streak = 0
 for _, c in reversed(days):
     if c > 0: streak += 1
     else: break
-alive = today_c > 0
-status = "BPM 72 · ALIVE" if alive else "NO PULSE · FLATLINE"
-scol = "#22c55e" if alive else "#ef4444"
+active_days = sum(1 for _, c in days if c > 0)
+total_contrib = sum(c for _, c in days)
+active = today_c > 0
+status = f"ACTIVE TODAY · {today_c} CONTRIBUTIONS" if active else "NO ACTIVITY TODAY"
+scol = "#22c55e" if active else "#ef4444"
 path = " ".join(green)
 
 grid = "".join(f'<line x1="{x}" y1="0" x2="{x}" y2="{H}" stroke="#12301f" stroke-width="1"/>' for x in range(0, total + 1, W))
@@ -58,7 +60,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {total} {H+40}" w
 </g>
 <circle r="4" fill="#fff"><animateMotion dur="6s" repeatCount="indefinite" path="{path}"/></circle>
 <text x="12" y="{H+26}" fill="{scol}" font-family="monospace" font-size="16" font-weight="bold">{status}</text>
-<text x="{total-12}" y="{H+26}" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="end">streak: {streak} din · last {DAYS} din</text>
+<text x="{total-12}" y="{H+26}" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="end">Streak: {streak} days · Active: {active_days}/{DAYS} days · Total: {total_contrib}</text>
 </svg>'''
 os.makedirs("assets", exist_ok=True)
 open("assets/ecg.svg", "w").write(svg)
