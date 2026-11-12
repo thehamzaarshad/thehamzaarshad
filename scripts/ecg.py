@@ -1,11 +1,24 @@
 """
-Contribution Pulse v3 - ICU bedside-monitor card driven by REAL GitHub data.
+Contribution Pulse v5 - ICU bedside-monitor card driven by REAL GitHub data.
 Theme: gold (dark + light), writes assets/ecg-dark.svg and assets/ecg-light.svg
+
+Human-like live model:
+  Every recent GitHub event adds "exertion" that ramps up (~3 min) and recovers (~15 min).
+  effort = 1 - exp(-load / 4)           0 = rested, ~1 = working hard
+
+  Vital     rest            working (effort=1)
+  HR        70 BPM          130 BPM
+  NIBP      118/76 mmHg     148/82 mmHg
+  SpO2      97-99 %         96-98 %
+  RESP      14 rpm          24 rpm
+  HRV       35-60 ms        ~10-15 ms (falls with effort)
+
+  Heart icon + header dot beat at exactly 60 / BPM seconds.
 
 Testing (no network / token needed):
     python3 scripts/ecg.py --demo all --out-dir demo       # open demo/index.html
-    python3 scripts/ecg.py --demo overload --out /tmp/o.svg   # -> /tmp/o-dark.svg, /tmp/o-light.svg
-States: normal tachy brady irregular critical spo2low overload bplow artifact leadsoff asystole
+    python3 scripts/ecg.py --demo working --out /tmp/o.svg   # -> /tmp/o-dark.svg, /tmp/o-light.svg
+States: normal working tachy brady irregular critical spo2low overload bplow artifact leadsoff asystole
 """
 import os, sys, re, json, math, random, argparse, datetime, urllib.request
 
@@ -26,6 +39,12 @@ PLETH_DELAY = 0.22
 
 LOW_W, HIGH_W, LOW_C, HIGH_C = 50, 120, 40, 140
 SPO2_W, SPO2_C = 92, 88
+
+# live heart model
+REST, PEAK = 70, 130        # resting / maximum working BPM
+TAU_REC = 15.0              # minutes: recovery time constant after activity
+TAU_RISE = 3.0              # minutes: ramp-up after an event
+K_LOAD = 4.0                # load needed for ~63% of max effort
 
 TAU = 2 * math.pi
 clamp = lambda v, a, b: max(a, min(b, v))
@@ -124,9 +143,13 @@ def activity_stats(events, cal, now):
             h_cal = (now - datetime.datetime.combine(last, datetime.time(12), utc)).total_seconds() / 3600
         hours = min(hours, h_cal)
 
-    s_ev = sum(WEIGHT.get(e["type"], 0.4) * math.exp(-age / 30) for age, _, e in rows)
-    s_cal = sum(0.8 * c * math.exp(-k / 1.25) for k, c in enumerate(reversed(series[-14:])))
-    score = max(s_ev, s_cal)
+    # LIVE LOAD: each event ramps up over ~3 min, then recovers over ~15 min
+    load = 0.0
+    for age_h, _, e in rows:
+        m = max(age_h, 0.0) * 60
+        load += WEIGHT.get(e["type"], 0.4) * (1 - math.exp(-m / TAU_RISE)) * math.exp(-m / TAU_REC)
+    if not rows:                                    # events API down: mild fallback from calendar
+        load = min(5.0, 0.2 * series[-1])
 
     n24 = sum(1 for age, _, _ in rows if age < 24) if rows else series[-1]
     repos7 = len({e.get("repo", {}).get("name") for age, _, e in rows if age < 168})
@@ -140,11 +163,8 @@ def activity_stats(events, cal, now):
         i -= 1
 
     m7, m30 = sum(series[-7:]) / 7, sum(series[-30:]) / 30
-    last14 = series[-14:]
-    diffs = [(last14[k] - last14[k - 1]) ** 2 for k in range(1, len(last14))]
-    rmssd = math.sqrt(sum(diffs) / len(diffs))
-    return dict(hours=hours, score=score, n24=n24, repos7=repos7, streak=streak,
-                active7=act(7), active30=act(30), m7=m7, m30=m30, hrv=rmssd, series=series)
+    return dict(hours=hours, load=load, n24=n24, repos7=repos7, streak=streak,
+                active7=act(7), active30=act(30), m7=m7, m30=m30, series=series)
 
 # ---------------------------------------------------------------- states
 def news2(hr, spo2, sbp, rr):
@@ -183,8 +203,8 @@ def rhythm_of(bpm, ir):
     return "NORMAL SINUS RHYTHM"
 
 def make_state(name, **kw):
-    S = dict(name=name, bpm=76, rate=None, ir=0.0, spo2=98, mode="normal", art=0.0,
-             sys=118, dia=76, rr=16, hrv=3.4, trend=None,
+    S = dict(name=name, bpm=76, rate=None, ir=0.0, spo2=98, mode="normal", art=0.0, effort=0.0,
+             sys=118, dia=76, rr=16, hrv=48, trend=None,
              side=dict(n24=4, streak=9, repos7=14), extra=[], rhythm=None)
     S.update(kw)
     if S["rate"] is None:
@@ -209,33 +229,49 @@ def make_state(name, **kw):
     S["level"] = S["alarms"][0][0] if S["alarms"] else 0
     return S
 
-def state_from_activity(st):
+def state_from_activity(st, rng):
     side = dict(n24=st["n24"], streak=st["streak"], repos7=st["repos7"])
     trend = st["series"][-30:]
     hours = st["hours"]
     if hours >= 168:
         return make_state("live", bpm=None, rate=0, ir=1.0, spo2=None, mode="asystole", side=side, trend=trend)
-    bpm = 40 + 50 * (1 - math.exp(-st["score"] / 3)) + 1.5 * max(0, st["score"] - 20)
-    if hours > 48:
+
+    # effort: 0 = fully rested, ~1 = working hard right now
+    effort = 1 - math.exp(-st["load"] / K_LOAD)
+
+    # HEART RATE: 70 at rest -> 130 at full effort
+    bpm = REST + (PEAK - REST) * effort
+    if hours > 48:                                   # long inactivity: bradycardia -> irregular
         bpm *= 1 - 0.75 * (hours - 48) / 120
     bpm = int(round(clamp(bpm, 10, 150)))
     ir = clamp((hours - 48) / 120, 0, 1)
-    spo2 = int(round(86 + 13 * (0.7 * st["active7"] / 7 + 0.3 * st["active30"] / 30)))
-    sys_ = int(round(clamp(80 + 8 * st["m7"], 70, 190)))
-    dia = int(round(clamp(min(50 + 6 * st["m30"], sys_ - 20), 40, 110)))
-    rr = int(round(clamp(6 + 0.6 * st["active30"], 6, 28)))
-    return make_state("live", bpm=bpm, ir=ir, spo2=spo2, sys=sys_, dia=dia, rr=rr,
-                      hrv=round(st["hrv"], 1), side=side, trend=trend)
+
+    # consistency (active days) only nudges SpO2 and HRV baseline a little
+    cons = 0.7 * st["active7"] / 7 + 0.3 * st["active30"] / 30
+
+    # SpO2: healthy 97-99 %, drops about 1 % at full effort
+    spo2 = int(round(clamp(97 + 2 * cons - effort, 94, 100)))
+    # BP: ~118/76 at rest. Systolic rises a lot with effort, diastolic barely moves (like a real person)
+    sys_ = int(round(clamp(118 + 30 * effort + rng.randint(-3, 3), 70, 190)))
+    dia = int(round(clamp(76 + 6 * effort + rng.randint(-2, 2), 40, 110)))
+    # RESP: 14 rpm at rest -> 24 rpm at full effort
+    rr = int(round(clamp(14 + 10 * effort + rng.choice((-1, 0, 0, 1)), 6, 28)))
+    # HRV (RMSSD ms): 35-60 at rest, falls up to 75% while working
+    hrv = int(round(clamp((35 + 25 * cons) * (1 - 0.75 * effort) + rng.randint(-2, 2), 5, 80)))
+
+    return make_state("live", bpm=bpm, ir=ir, spo2=spo2, sys=sys_, dia=dia, rr=rr, effort=effort,
+                      hrv=hrv, side=side, trend=trend)
 
 DEMOS = {
     "normal":    dict(),
-    "tachy":     dict(bpm=134),
+    "working":   dict(bpm=114, effort=0.7, spo2=97, sys=140, dia=80, rr=21, hrv=18),
+    "tachy":     dict(bpm=134, effort=0.8, sys=145, dia=82, rr=22, hrv=14),
     "brady":     dict(bpm=44),
     "irregular": dict(bpm=62, ir=0.6),
     "critical":  dict(bpm=34, ir=0.8, spo2=90),
     "spo2low":   dict(bpm=88, spo2=89),
-    "overload":  dict(bpm=124, spo2=90, sys=186, dia=104, rr=26, hrv=9.8),
-    "bplow":     dict(bpm=58, sys=84, dia=50, rr=9, hrv=0.8),
+    "overload":  dict(bpm=124, spo2=90, sys=186, dia=104, rr=26, hrv=9, effort=1.0),
+    "bplow":     dict(bpm=58, sys=84, dia=50, rr=9, hrv=30),
     "artifact":  dict(art=1.0, extra=[(1, "ECG ARTIFACT")], rhythm="ARTIFACT"),
     "leadsoff":  dict(bpm=None, rate=74, mode="leadsoff", extra=[(1, "ECG LEADS OFF")], rhythm="LEADS OFF"),
     "asystole":  dict(bpm=None, rate=0, spo2=None, mode="asystole", side=dict(n24=0, streak=0, repos7=0)),
@@ -244,6 +280,8 @@ DEMOS = {
 # ------------------------------------------------------------ waveforms
 def build_waves(S, rng):
     rate, ir, mode, art, spo2 = S["rate"], S["ir"], S["mode"], S["art"], S["spo2"]
+    eff = S["effort"]
+    fb = (S["rr"] or 16) / 60.0                      # breathing frequency (Hz) follows RESP
     KD = CYCLE / NKNOT
 
     walk, cur = [], 0
@@ -251,13 +289,13 @@ def build_waves(S, rng):
         cur = clamp(cur + rng.choice((-1, 0, 0, 1)), -2, 2)
         walk.append(cur)
     phi = rng.uniform(0, TAU)
-    rsa = min(3.0, rate * 0.03) * (1 - ir)
+    rsa = min(3.0, rate * 0.03) * (1 - ir) * (1 - 0.7 * eff)   # variability drops when working
 
     def hr(t):
         x = t / KD - 0.5
         i = int(math.floor(x)); f = x - i
         a = walk[clamp(i, 0, NKNOT - 1)]; b = walk[clamp(i + 1, 0, NKNOT - 1)]
-        return rate + a + (b - a) * f + rsa * math.sin(TAU * 0.27 * t + phi)
+        return rate + a + (b - a) * f + rsa * math.sin(TAU * fb * t + phi)
 
     beats = []
     if mode != "asystole" and rate:
@@ -304,14 +342,14 @@ def build_waves(S, rng):
             y += 46 * sc * pa * (g(dt, 0, .063) + 0.32 * g(dt, .158, .054))
         return y
 
-    hf = 0.6 + 0.8 * ir
-    wamp = 2.4 + 1.0 * ir
+    hf = 0.6 + 0.8 * ir + 0.7 * eff                  # more muscle noise while working
+    wamp = 2.4 + 1.0 * ir + 1.2 * eff                # bigger breathing sway while working
     ph1, ph2 = rng.uniform(0, TAU), rng.uniform(0, TAU)
     bursts = [(rng.uniform(0, CYCLE - 1), rng.uniform(.4, 1.0), rng.uniform(2.5, 5.0)) for _ in range(5)] if art else []
     steps = [(rng.uniform(0, CYCLE), rng.choice((-1, 1)) * rng.uniform(8, 14)) for _ in range(3)] if art else []
 
     def wander(t, st=True):
-        w = wamp * (math.sin(TAU * 0.27 * t + ph1) + 0.4 * math.sin(TAU * 0.09 * t + ph2))
+        w = wamp * (math.sin(TAU * fb * t + ph1) + 0.4 * math.sin(TAU * 0.09 * t + ph2))
         if st:
             for s, a in steps:
                 if t >= s:
@@ -351,8 +389,7 @@ def build_waves(S, rng):
             if rng.random() < 0.35:
                 s = clamp(s + rng.choice((-1, 1)), spo2 - 1, min(100, spo2 + 1))
             sp.append(int(s))
-    return dict(ecgA=path(eA), ppgA=path(pA), ecgB=path(eB), ppgB=path(pB),
-                rtimes=[b["t"] for b in beats if 0 < b["t"] < CYCLE], disp=disp, spo2=sp)
+    return dict(ecgA=path(eA), ppgA=path(pA), ecgB=path(eB), ppgB=path(pB), disp=disp, spo2=sp)
 
 # ------------------------------------------------------------- svg bits
 def cycle(items, dur):
@@ -379,16 +416,6 @@ def cycle(items, dur):
                    f'dur="{dur:.2f}s" repeatCount="indefinite" keyTimes="{";".join(f"{x:.4f}" for x in kts)}" '
                    f'values="{";".join(vs)}"/>{s}</g>')
     return "".join(out)
-
-def pulse_track(times, base, peak, rise=0.05, fall=0.22):
-    pts, last = [(0.0, base)], 0.0
-    for t in times:
-        if t <= last + 0.01 or t + fall >= CYCLE - 0.01:
-            continue
-        pts += [(t, base), (t + rise, peak), (t + fall, base)]
-        last = t + fall
-    pts.append((CYCLE, base))
-    return ";".join(f"{t / CYCLE:.5f}" for t, _ in pts), ";".join(f"{v}" for _, v in pts)
 
 def clip_defs(still):
     y, h = PY + 4, PH - 8
@@ -485,11 +512,16 @@ def render(S, user, now, rng, still=False):
     else:
         sp_txt = f'<text x="1122" y="262" fill="{C2}" font-size="38" font-weight="800" text-anchor="end" font-family="{MONO}">--</text>'
 
-    rt = Wv["rtimes"] if S["bpm"] else []
-    hk, hv = pulse_track(rt, 1, 1.22)
-    dk, dv = pulse_track(rt, 0.25, 1)
-    heart_anim = f'<animateTransform attributeName="transform" type="scale" keyTimes="{hk}" values="{hv}" dur="{CYCLE:.2f}s" repeatCount="indefinite"/>' if rt else ""
-    dot_anim = f'<animate attributeName="opacity" keyTimes="{dk}" values="{dv}" dur="{CYCLE:.2f}s" repeatCount="indefinite"/>' if rt else ""
+    # heart icon + header dot beat exactly at the displayed BPM (lub-dub every 60/BPM seconds)
+    if S["bpm"]:
+        per = 60.0 / S["bpm"]
+        kt = "0;.08;.18;.28;.40;1"
+        heart_anim = (f'<animateTransform attributeName="transform" type="scale" keyTimes="{kt}" '
+                      f'values="1;1.22;1;1.12;1;1" dur="{per:.3f}s" repeatCount="indefinite"/>')
+        dot_anim = (f'<animate attributeName="opacity" keyTimes="{kt}" values=".25;1;.25;.7;.25;.25" '
+                    f'dur="{per:.3f}s" repeatCount="indefinite"/>')
+    else:
+        heart_anim = dot_anim = ""
 
     def group(cid, e, p):
         if leads_off:
@@ -518,7 +550,7 @@ def render(S, user, now, rng, still=False):
     nibp_col = LEVEL_COL[1] if S["sys"] and (S["sys"] < 90 or S["sys"] >= 180) else "#e6edf3"
     cards = (card(876, 280, 64, "NIBP", nibp, "SYS/DIA mmHg", nibp_col, 20) +
              card(980, 280, 64, "RESP", rr_v, "RPM", "#e6edf3", 28) +
-             card(1084, 280, 64, "HRV", hrv_v, "RMSSD", "#e6edf3", 28) +
+             card(1084, 280, 64, "HRV", hrv_v, "RMSSD ms", "#e6edf3", 28) +
              card(876, 356, 52, "NEWS2", n_val, n_unit, n_col, 22) +
              card(980, 356, 52, "STREAK", S["side"]["streak"], "DAYS", "#e6edf3", 22) +
              card(1084, 356, 52, "EVENTS", S["side"]["n24"], "LAST 24H", "#e6edf3", 22))
@@ -635,10 +667,13 @@ def main():
         print("events unavailable:", ex, file=sys.stderr)
         events = []
     cal = fetch_calendar(user, token)
-    S = state_from_activity(activity_stats(events, cal, now))
-    write_themes(S, user, now, int(now.strftime("%Y%m%d%H")), a.still, a.out)
-    print(f"state={S['rhythm']} bpm={S['bpm']} spo2={S['spo2']} nibp={S['sys']}/{S['dia']} rr={S['rr']} "
-          f"hrv={S['hrv']} news2={S['news']} level={S['level']}")
+    st = activity_stats(events, cal, now)
+    # seed changes every 5 minutes so the waveform and small vital jitter look fresh on each update
+    seed = int(now.strftime("%Y%m%d%H")) * 12 + now.minute // 5
+    S = state_from_activity(st, random.Random(seed + 1))
+    write_themes(S, user, now, seed, a.still, a.out)
+    print(f"load={st['load']:.2f} effort={S['effort']:.2f} state={S['rhythm']} bpm={S['bpm']} spo2={S['spo2']} "
+          f"nibp={S['sys']}/{S['dia']} rr={S['rr']} hrv={S['hrv']} news2={S['news']} level={S['level']}")
 
 if __name__ == "__main__":
     main()
