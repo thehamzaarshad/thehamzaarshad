@@ -205,3 +205,81 @@
 </picture>
 
 </div>
+
+
+<!-- ===================== PROJECTS ===================== -->
+<div align="center">
+
+<h2 align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-projects-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-projects-light.svg" alt="Projects" height="48" />
+</picture>
+</h2>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🩺 ECG Pulse
+**ICU Monitor for GitHub Activity**
+<br/>
+<sub>Real GitHub activity se chalne wala ICU bedside monitor. HR, SpO2, NIBP live dikhata hai.</sub>
+<br/><br/>
+![Python](https://img.shields.io/badge/Python-DCA54C?style=flat-square&logo=python&logoColor=20161F)
+![GitHub Actions](https://img.shields.io/badge/Actions-20161F?style=flat-square&logo=githubactions&logoColor=DCA54C)
+<br/><br/>
+<a href="https://github.com/thehamzaarshad/thehamzaarshad">🔗 Live</a> &nbsp;|&nbsp; <a href="https://github.com/thehamzaarshad/thehamzaarshad">💻 Code</a>
+
+</td>
+<td width="50%" valign="top">
+
+### 🔭 Hubble Fix
+**2 Micrometer Story Website**
+<br/>
+<sub>Hubble ki kahani — 2 micrometer ki galti ne kaise $1.5B telescope ko bachaya.</sub>
+<br/><br/>
+![HTML](https://img.shields.io/badge/HTML-DCA54C?style=flat-square&logo=html5&logoColor=20161F)
+![CSS](https://img.shields.io/badge/CSS-20161F?style=flat-square&logo=css3&logoColor=DCA54C)
+![JS](https://img.shields.io/badge/JS-DCA54C?style=flat-square&logo=javascript&logoColor=20161F)
+<br/><br/>
+<a href="https://github.com/thehamzaarshad">🔗 Live</a> &nbsp;|&nbsp; <a href="https://github.com/thehamzaarshad">💻 Code</a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### ✨ Gold Profile
+**Premium GitHub README Theme**
+<br/>
+<sub>Light / Dark gold theme — banner, typing, divider, footer sab custom SVG.</sub>
+<br/><br/>
+![SVG](https://img.shields.io/badge/SVG-DCA54C?style=flat-square&logo=svg&logoColor=20161F)
+![Markdown](https://img.shields.io/badge/Markdown-20161F?style=flat-square&logo=markdown&logoColor=DCA54C)
+<br/><br/>
+<a href="https://github.com/thehamzaarshad">🔗 Live</a> &nbsp;|&nbsp; <a href="https://github.com/thehamzaarshad">💻 Code</a>
+
+</td>
+<td width="50%" valign="top">
+
+### 📦 Your Next Project
+**Coming Soon**
+<br/>
+<sub>Yahan apna 4th project add karo — jo bhi bana rahe ho.</sub>
+<br/><br/>
+![Python](https://img.shields.io/badge/Python-DCA54C?style=flat-square&logo=python&logoColor=20161F)
+![JS](https://img.shields.io/badge/JS-20161F?style=flat-square&logo=javascript&logoColor=DCA54C)
+<br/><br/>
+<a href="https://github.com/thehamzaarshad">🔗 Live</a> &nbsp;|&nbsp; <a href="https://github.com/thehamzaarshad">💻 Code</a>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
+</picture>
