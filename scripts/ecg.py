@@ -1,159 +1,257 @@
-import os, json, math, datetime, urllib.request
+"""
+Contribution Pulse - patient-monitor style GitHub activity card.
+
+Activity  -> heart rate (continuous, decays like a real vital sign)
+Inactivity -> bradycardia -> irregular rhythm -> asystole (flatline)
+Output    -> assets/ecg.svg  (animated SVG, works inside a GitHub README)
+"""
+import os, json, math, random, datetime, urllib.request
 
 USER = os.environ["GH_USER"]
 TOKEN = os.environ["GH_TOKEN"]
-W, H, BASE = 1200, 240, 130
-SPEED = 240  # px/sec scroll speed (72 BPM => 200px per beat)
 
-# ---------------------------------------------------------------- data
-req = urllib.request.Request(
-    f"https://api.github.com/users/{USER}/events/public?per_page=100",
-    headers={"Authorization": f"Bearer {TOKEN}"})
-events = json.load(urllib.request.urlopen(req))
+W, H = 1200, 340            # canvas
+TX, TW = 24, 832            # trace panel x / width
+ECG_Y, PPG_Y = 170, 292     # baselines of the two traces
+SPEED = 240.0               # scroll speed px/s  (72 bpm -> 200 px per beat)
+
+# ------------------------------------------------------------------ data
+def fetch_events():
+    out = []
+    for page in (1, 2, 3):
+        req = urllib.request.Request(
+            f"https://api.github.com/users/{USER}/events/public?per_page=100&page={page}",
+            headers={"Authorization": f"Bearer {TOKEN}",
+                     "Accept": "application/vnd.github+json"})
+        batch = json.load(urllib.request.urlopen(req))
+        out += batch
+        if len(batch) < 100:
+            break
+    return out
+
+events = fetch_events()
 now = datetime.datetime.now(datetime.timezone.utc)
-times = [datetime.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00")) for e in events]
-hours = (now - max(times)).total_seconds() / 3600 if times else 9999
-n24 = sum(1 for t in times if (now - t).total_seconds() < 86400)
 
-if not times: ago = "30d+"
-elif hours < 1: ago = "just now"
-elif hours < 48: ago = f"{int(hours)}h"
-else: ago = f"{int(hours // 24)}d"
+WEIGHT = {"PushEvent": 1.0, "PullRequestEvent": 1.6, "PullRequestReviewEvent": 1.2,
+          "IssuesEvent": 0.8, "IssueCommentEvent": 0.6, "CreateEvent": 0.6}
+rows = []
+for e in events:
+    t = datetime.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))
+    rows.append(((now - t).total_seconds() / 3600, t, e))
 
-# ---------------------------------------------------------- diagnosis
-# state: (label, colour1, colour2, blink-seconds)
-if hours >= 168:                       # 7+ days  -> dead
-    state = "FLATLINE"
-elif hours >= 72:                      # 3-7 days -> irregular, unstable
-    state = "ARRHYTHMIA"
-elif hours >= 24:                      # 1-3 days -> slow, weak
-    state = "BRADYCARDIA"
-elif n24 >= 14:                        # very busy -> fast
-    state = "TACHYCARDIA"
-else:                                  # normal sinus rhythm
-    state = "NORMAL"
+hours = min((r[0] for r in rows), default=9999.0)
+score = sum(WEIGHT.get(e["type"], 0.4) * math.exp(-age / 30) for age, _, e in rows)
+n24 = sum(1 for age, _, _ in rows if age < 24)
+repos7 = len({e.get("repo", {}).get("name") for age, _, e in rows if age < 168})
+days = {t.date() for _, t, _ in rows}
+d = now.date()
+if d not in days:
+    d -= datetime.timedelta(days=1)
+streak = 0
+while d in days:
+    streak += 1
+    d -= datetime.timedelta(days=1)
 
-STYLE = {
-    "NORMAL":      ("#22d3a0", "#38bdf8", 1.2),
-    "TACHYCARDIA": ("#fbbf24", "#f97316", 0.6),
-    "BRADYCARDIA": ("#fb923c", "#f59e0b", 1.8),
-    "ARRHYTHMIA":  ("#ff6b4a", "#ef4444", 0.5),
-    "FLATLINE":    ("#ff4d5e", "#ff8a5e", 0),
-}
-C, C2, blink = STYLE[state]
+# ------------------------------------------------------------ diagnosis
+clamp = lambda v, a, b: max(a, min(b, v))
+asystole = hours >= 168
 
-# ---------------------------------------------------------- waveforms
-SHAPE = [(0,0),(40,0),(52,-8),(64,0),(80,0),(88,10),(96,-64),(106,28),
-         (114,0),(140,0),(152,-14),(168,0),(200,0)]          # P-QRS-T
-PVC = [(0,0),(20,-6),(44,-78),(70,52),(92,26),(120,-18),(150,-6),(170,0)]  # wide ectopic beat
-
-def beat(x0, spacing, amp=1.0):
-    sx = min(1.0, spacing / 200)
-    pts = [(x0 + dx * sx, BASE + dy * amp) for dx, dy in SHAPE]
-    pts.append((x0 + spacing, BASE))
-    return pts
-
-def pvc(x0, amp=1.0):
-    return [(x0 + dx, BASE + dy * amp) for dx, dy in PVC]
-
-def build_pattern():
-    """Returns list of (kind, spacing, amp). One full pattern loops seamlessly."""
-    if state == "NORMAL":
-        bpm = 60 + n24 * 3                       # 1 event -> 63 bpm ... 13 events -> 99 bpm
-        return [("n", 14400 / bpm, 1.0)]
-    if state == "TACHYCARDIA":
-        bpm = min(160, 100 + (n24 - 13) * 4)     # more activity -> faster
-        return [("n", 14400 / bpm, 0.9)]
-    if state == "BRADYCARDIA":
-        return [("n", 300, 0.75)]                # ~48 bpm, weaker amplitude
-    if state == "ARRHYTHMIA":                    # irregular spacing + ectopic beat + low amplitude
-        return [("n", 300, 0.55), ("p", 170, 0.9), ("n", 420, 0.5),
-                ("n", 240, 0.6), ("n", 520, 0.45)]
-    return []
-
-pattern = build_pattern()
-
-if pattern:
-    L = sum(s for _, s, _ in pattern)
-    bpm = round(len(pattern) * 60 / (L / SPEED))
-    reps = math.ceil(W / L) + 2
-    pts = ["M0,%d" % BASE]
-    x = 0.0
-    for _ in range(reps):
-        for kind, sp, amp in pattern:
-            seg = pvc(x, amp) if kind == "p" else beat(x, sp, amp)
-            for px, py in seg:
-                pts.append(f"L{px:.1f},{py:.1f}")
-            x += sp
-    wave = " ".join(pts)
-    dur = L / SPEED
-    trace = f'''
-<g mask="url(#fade)">
- <g>
-  <path d="{wave}" stroke="{C}" stroke-width="7" fill="none" opacity=".35" filter="url(#glow)" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="{wave}" stroke="url(#line)" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-  <animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.1f} 0" dur="{dur:.2f}s" repeatCount="indefinite"/>
- </g>
-</g>'''
-    sub = f"Last activity {ago} ago · {n24} in 24h"
-    badge_anim = f'<animate attributeName="opacity" values="1;.25;1" dur="{blink}s" repeatCount="indefinite"/>'
+if asystole:
+    bpm, ir = 0, 1.0
 else:
-    bpm = 0
-    trace = f'''
-<g mask="url(#fade)">
- <path d="M0,{BASE} L{W},{BASE}" stroke="{C}" stroke-width="7" fill="none" opacity=".3" filter="url(#glow)"/>
- <path d="M0,{BASE} L{W},{BASE}" stroke="{C}" stroke-width="3" fill="none" stroke-dasharray="14 10">
-  <animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/>
- </path>
-</g>'''
-    sub = f"No activity for {ago}"
-    badge_anim = ""
+    bpm = 40 + 50 * (1 - math.exp(-score / 3)) + 1.5 * max(0, score - 20)
+    if hours > 48:                                   # fading out
+        bpm *= 1 - 0.75 * (hours - 48) / 120
+    bpm = int(round(clamp(bpm, 10, 150)))
+    ir = clamp((hours - 48) / 120, 0, 1)             # rhythm irregularity 0..1
 
-label = state
-lw = 34 + len(label) * 11
+LOW_W, HIGH_W, LOW_C, HIGH_C = 50, 120, 40, 140
+if asystole:
+    level, alarm, rhythm = 2, "ASYSTOLE - NO ACTIVITY", "ASYSTOLE"
+else:
+    if bpm < LOW_C:      level, alarm = 2, "HR CRITICAL LOW"
+    elif bpm >= HIGH_C:  level, alarm = 2, "HR CRITICAL HIGH"
+    elif bpm < LOW_W:    level, alarm = 1, "HR TOO LOW"
+    elif bpm >= HIGH_W:  level, alarm = 1, "HR TOO HIGH"
+    elif ir > 0.3:       level, alarm = 1, "IRREGULAR RHYTHM"
+    else:                level, alarm = 0, None
+    if ir > 0.3:     rhythm = "IRREGULAR RHYTHM"
+    elif bpm < 60:   rhythm = "BRADYCARDIA"
+    elif bpm >= 100: rhythm = "TACHYCARDIA"
+    else:            rhythm = "NORMAL SINUS RHYTHM"
 
-svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%">
+C, C2 = {0: ("#22d3a0", "#38bdf8"),
+         1: ("#fbbf24", "#fb923c"),
+         2: ("#ff4d5e", "#ff8a5e")}[level]
+
+# ------------------------------------------------------------ waveforms
+rng = random.Random(7)
+g = lambda dx, c, w: math.exp(-((dx - c) / w) ** 2)
+
+beats = []                                           # dicts: x0, sp, pvc, amp, r0
+if asystole:
+    L = 960.0
+else:
+    base = 14400.0 / bpm
+    nb = int(clamp(round(1800 / base), 2, 12))
+    pvc = set()
+    if ir > 0.3 and nb >= 4:
+        pvc.add(rng.randrange(1, nb - 1))
+        if ir > 0.7 and nb >= 7:
+            pvc.add(rng.randrange(1, nb - 1))
+    x = 0.0
+    for i in range(nb):
+        if i + 1 in pvc:   sp = base * 0.62          # premature beat follows
+        elif i in pvc:     sp = base * 1.40          # compensatory pause
+        else:              sp = base * (1 + rng.uniform(-1, 1) * (0.03 + 0.40 * ir))
+        amp = (1 - 0.40 * ir) * (1 + rng.uniform(-0.05, 0.05))
+        is_pvc = i in pvc
+        r0 = 40.0 if is_pvc else min(96.0, 0.48 * sp)
+        beats.append(dict(x0=x, sp=sp, pvc=is_pvc, amp=1.0 if is_pvc else amp, r0=r0))
+        x += sp
+    L = x
+
+noise_amp = 0.9 + 2.6 * ir
+NOISE = [(max(1, round(L / p)), rng.uniform(0, 6.283), rng.uniform(.5, 1.0))
+         for p in (6, 9, 13, 19, 27, 41)]
+m_wander = max(1, round(L / 960))
+
+def noise(x, k=1.0):
+    n = sum(a * math.sin(6.283185 * m * x / L + ph) for m, ph, a in NOISE)
+    n *= noise_amp * k / 2.2
+    return n + 2.5 * math.sin(6.283185 * m_wander * x / L)
+
+def ecg_y(x):
+    y = 0.0
+    for b in beats:
+        for k in (-L, 0.0, L):
+            dx = x - (b["x0"] + k)
+            if dx < -80 or dx > 240:
+                continue
+            a, r0 = b["amp"], b["r0"]
+            if b["pvc"]:
+                y += -78 * a * g(dx, r0, 13) + 46 * a * g(dx, r0 + 30, 17) + 22 * a * g(dx, r0 + 78, 22)
+            else:
+                K = min(1.0, b["sp"] / 200) ** 0.6
+                y += (-9 * a * g(dx, r0 - 51 * K, 9 * K + 2)
+                      + 9 * a * g(dx, r0 - 7, 2.6)
+                      - 70 * a * g(dx, r0, 3.4)
+                      + 24 * a * g(dx, r0 + 8, 3.8)
+                      - 17 * a * g(dx, r0 + 54 * K, 15 * K + 4))
+    return ECG_Y + y + noise(x)
+
+def ppg_y(x):
+    y = 0.0
+    for b in beats:
+        for k in (-L, 0.0, L):
+            dx = x - (b["x0"] + k) - (b["r0"] + 48)
+            if dx < -60 or dx > 140:
+                continue
+            pa = 0.55 if b["pvc"] else b["amp"]
+            y += 46 * pa * (g(dx, 0, 15) + 0.32 * g(dx, 38, 13))
+    return PPG_Y - y + noise(x + 17, 0.35) * 0.6
+
+STEP = 2.0
+N = int(L / STEP)
+reps = math.ceil(TW / L) + 1
+
+def path(fn):
+    ys = [fn(i * STEP) for i in range(N)]
+    out = [f"M0,{ys[0]:.1f}"]
+    for r in range(reps):
+        for i in range(N):
+            if r == 0 and i == 0:
+                continue
+            out.append(f"L{r * L + i * STEP:.1f},{ys[i]:.1f}")
+    out.append(f"L{reps * L:.1f},{ys[0]:.1f}")
+    return " ".join(out)
+
+ecg_d, ppg_d = path(ecg_y), path(ppg_y)
+dur = L / SPEED
+beat_s = (60.0 / bpm) if bpm else 0
+
+# ---------------------------------------------------------------- layout
+banner = ("\u25B2 " + alarm) if alarm else rhythm
+bw = int(len(banner) * 11 + 40)
+if level:
+    banner_svg = (f'<rect x="520" y="16" width="{bw}" height="32" rx="8" fill="{C}"'
+                  f'>{"<animate attributeName=\"opacity\" values=\"1;.55;1\" dur=\"1s\" repeatCount=\"indefinite\"/>" if level == 2 else ""}</rect>'
+                  f'<text x="{520 + bw // 2}" y="38" fill="{"#fff" if level == 2 else "#0b0f16"}" font-size="14" font-weight="800" '
+                  f'text-anchor="middle" letter-spacing="1.5">{banner}</text>')
+else:
+    banner_svg = (f'<rect x="520" y="16" width="{bw}" height="32" rx="16" fill="{C}" fill-opacity=".12" stroke="{C}" stroke-opacity=".55"/>'
+                  f'<text x="{520 + bw // 2}" y="38" fill="{C}" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">{banner}</text>')
+
+dot_anim = (f'<animate attributeName="opacity" values="1;.2;1" dur="{max(beat_s, .4):.2f}s" repeatCount="indefinite"/>' if bpm else "")
+heart_anim = (f'<animateTransform attributeName="transform" type="scale" values="1;1.22;1;1" keyTimes="0;.12;.3;1" dur="{beat_s:.2f}s" repeatCount="indefinite"/>' if bpm else "")
+bpm_txt = str(bpm) if bpm else "--"
+
+def card(x, label, val, unit):
+    cx = x + 46
+    return (f'<rect x="{x}" y="216" width="92" height="100" rx="12" fill="#0b121c" stroke="#fff" stroke-opacity=".08"/>'
+            f'<text x="{cx}" y="238" fill="#8b98a8" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="2">{label}</text>'
+            f'<text x="{cx}" y="284" fill="#e6edf3" font-size="40" font-weight="800" text-anchor="middle" font-family="ui-monospace,Consolas,monospace">{val}</text>'
+            f'<text x="{cx}" y="304" fill="#6b7a8c" font-size="11" text-anchor="middle" letter-spacing="1">{unit}</text>')
+
+svg = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {W} {H}" width="100%">
 <defs>
- <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="#0d1420"/><stop offset="1" stop-color="#070b12"/>
- </linearGradient>
- <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{C}" stop-opacity=".7"/><stop offset="1" stop-color="{C2}" stop-opacity=".7"/>
- </linearGradient>
- <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{C}"/><stop offset="1" stop-color="{C2}"/>
- </linearGradient>
- <linearGradient id="m" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#000"/><stop offset=".1" stop-color="#fff"/>
-  <stop offset=".9" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
- </linearGradient>
- <mask id="fade"><rect x="0" y="70" width="{W}" height="130" fill="url(#m)"/></mask>
- <radialGradient id="halo" cx=".5" cy=".5" r=".5">
-  <stop offset="0" stop-color="{C}" stop-opacity=".18"/><stop offset="1" stop-color="{C}" stop-opacity="0"/>
- </radialGradient>
- <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse" y="10">
-  <path d="M30,0 L0,0 L0,30" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
- </pattern>
- <filter id="glow" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1420"/><stop offset="1" stop-color="#070b12"/></linearGradient>
+ <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C}" stop-opacity=".7"/><stop offset="1" stop-color="{C2}" stop-opacity=".7"/></linearGradient>
+ <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C}"/><stop offset="1" stop-color="{C2}"/></linearGradient>
+ <linearGradient id="m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000"/><stop offset=".07" stop-color="#fff"/><stop offset=".93" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+ <mask id="fade"><rect x="{TX}" y="76" width="{TW}" height="240" fill="url(#m)"/></mask>
+ <clipPath id="clip"><rect x="{TX}" y="80" width="{TW}" height="232"/></clipPath>
+ <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C}" stop-opacity=".14"/><stop offset="1" stop-color="{C}" stop-opacity="0"/></radialGradient>
+ <pattern id="g1" x="{TX}" y="76" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10,0 L0,0 L0,10" fill="none" stroke="#fff" stroke-opacity=".03"/></pattern>
+ <pattern id="g2" x="{TX}" y="76" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50,0 L0,0 L0,50" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern>
+ <filter id="glow" x="-2%" y="-40%" width="104%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+ <path id="ecg" d="{ecg_d}" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+ <path id="ppg" d="{ppg_d}" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
 </defs>
 
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="20" fill="url(#bg)" stroke="url(#stroke)" stroke-width="1.5"/>
-<ellipse cx="600" cy="{BASE}" rx="560" ry="90" fill="url(#halo)"/>
-<rect x="20" y="70" width="{W-40}" height="130" fill="url(#grid)"/>
+<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="22" fill="url(#bg)" stroke="url(#stroke)" stroke-width="1.5"/>
+<ellipse cx="440" cy="{ECG_Y}" rx="430" ry="120" fill="url(#halo)"/>
 
 <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
- <circle cx="44" cy="40" r="6" fill="{C}">{badge_anim}</circle>
- <text x="60" y="46" fill="#e6edf3" font-size="20" font-weight="700" letter-spacing="3">CONTRIBUTION PULSE</text>
- <text x="{W-40}" y="40" fill="{C}" font-size="34" font-weight="800" text-anchor="end" font-family="ui-monospace,Consolas,monospace">{bpm}<tspan fill="#8b98a8" font-size="14" font-weight="600" dx="6">BPM</tspan></text>
+ <circle cx="44" cy="34" r="6" fill="{C}">{dot_anim}</circle>
+ <text x="62" y="40" fill="#e6edf3" font-size="19" font-weight="700" letter-spacing="3">CONTRIBUTION PULSE</text>
+ <text x="62" y="60" fill="#6b7a8c" font-size="12" letter-spacing="1" font-family="ui-monospace,Consolas,monospace">@{USER} \u00b7 LEAD II \u00b7 {rhythm}</text>
+ {banner_svg}
+ <text x="{W-24}" y="40" fill="#6b7a8c" font-size="12" text-anchor="end" letter-spacing="1" font-family="ui-monospace,Consolas,monospace">UPDATED {now.strftime("%H:%M")} UTC</text>
 </g>
 
-{trace}
+<rect x="{TX}" y="76" width="{TW}" height="240" rx="14" fill="#070b12" fill-opacity=".7" stroke="#fff" stroke-opacity=".08"/>
+<rect x="{TX}" y="76" width="{TW}" height="240" rx="14" fill="url(#g1)"/>
+<rect x="{TX}" y="76" width="{TW}" height="240" rx="14" fill="url(#g2)"/>
+<line x1="{TX+12}" y1="224" x2="{TX+TW-12}" y2="224" stroke="#fff" stroke-opacity=".07"/>
+<g font-family="ui-monospace,Consolas,monospace" font-size="12" font-weight="700" letter-spacing="2">
+ <text x="{TX+16}" y="100" fill="{C}">II</text>
+ <text x="{TX+16}" y="242" fill="{C2}">PLETH</text>
+</g>
+
+<g clip-path="url(#clip)"><g mask="url(#fade)"><g transform="translate({TX},0)">
+ <g>
+  <use href="#ecg" xlink:href="#ecg" stroke="{C}" stroke-width="7" opacity=".35" filter="url(#glow)"/>
+  <use href="#ecg" xlink:href="#ecg" stroke="url(#line)" stroke-width="2.6"/>
+  <use href="#ppg" xlink:href="#ppg" stroke="{C2}" stroke-width="2.2" opacity=".9"/>
+  <animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.1f} 0" dur="{dur:.2f}s" repeatCount="indefinite"/>
+ </g>
+</g></g></g>
 
 <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
- <rect x="30" y="206" width="{lw}" height="26" rx="13" fill="{C}" fill-opacity=".14" stroke="{C}" stroke-opacity=".5"/>
- <text x="{30 + lw//2}" y="224" fill="{C}" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">{label}</text>
- <text x="{W-30}" y="224" fill="#8b98a8" font-size="14" text-anchor="end" font-family="ui-monospace,Consolas,monospace">{sub} · @{USER}</text>
+ <rect x="876" y="76" width="300" height="128" rx="14" fill="#0b121c" stroke="{C}" stroke-opacity=".4"/>
+ <text x="892" y="100" fill="{C}" font-size="13" font-weight="800" letter-spacing="2">ECG <tspan fill="#8b98a8" font-weight="600">\u00b7 PULSE</tspan></text>
+ <text x="1160" y="100" fill="#6b7a8c" font-size="12" text-anchor="end" font-family="ui-monospace,Consolas,monospace">LIMITS {LOW_W}-{HIGH_W}</text>
+ <g transform="translate(922,152)"><g>{heart_anim}<path d="M0,15 C-30,-5 -18,-30 0,-14 C18,-30 30,-5 0,15 Z" fill="{C}" fill-opacity=".9"/></g></g>
+ <text x="1122" y="182" fill="{C}" font-size="82" font-weight="800" text-anchor="end" font-family="ui-monospace,Consolas,monospace">{bpm_txt}</text>
+ <text x="1160" y="182" fill="#8b98a8" font-size="14" font-weight="600" text-anchor="end" letter-spacing="1">BPM</text>
+ {card(876, "EVENTS", n24, "LAST 24H")}
+ {card(980, "STREAK", streak, "DAYS")}
+ {card(1084, "REPOS", repos7, "LAST 7D")}
 </g>
 </svg>'''
+
 os.makedirs("assets", exist_ok=True)
-open("assets/ecg.svg", "w").write(svg)
+with open("assets/ecg.svg", "w", encoding="utf-8") as f:
+    f.write(svg)
+print(f"state={rhythm} bpm={bpm} level={level} hours={hours:.1f} n24={n24} streak={streak} size={len(svg)//1024}KB")
