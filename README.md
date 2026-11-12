@@ -94,9 +94,33 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 
 ## 📡 Contribution Pulse
 
-<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse" width="100%"/>
+<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%"/>
+
+<sub>An ICU bedside monitor driven by my real GitHub activity. Refreshes every 3 hours via GitHub Actions.</sub>
 
 </div>
+
+<details>
+<summary><b>🩺 How to read my vitals</b></summary>
+
+<br/>
+
+Every number on the monitor is computed from my actual GitHub data (GraphQL contribution calendar + public events).
+
+| Vital | What it means | How it is computed |
+| ----- | ------------- | ------------------ |
+| **HR** (BPM) | Current coding intensity | Weighted activity score (pushes, PRs, reviews, issues) with a 30-hour exponential decay |
+| **SpO2** (%) | Consistency | Active days in the last 7 days (70%) and last 30 days (30%) |
+| **NIBP** (mmHg) | Workload pressure | Systolic = 7-day average daily load, diastolic = 30-day baseline |
+| **RESP** (rpm) | Pace | Active days in the last 30 days |
+| **HRV** (RMSSD) | Variability | RMSSD of day-to-day contribution changes over 14 days |
+| **NEWS2** | Overall early-warning score | The NHS NEWS2 banding applied to HR, SpO2, systolic BP and RR |
+
+**Rhythms:** normal sinus rhythm while I'm active → bradycardia → irregular rhythm (PVCs) as days go quiet → **asystole** after 7 days with no activity.
+
+**Alarms:** NEWS2 5-6 = *urgent review*, NEWS2 7+ = *escalate*. The bottom strip shows my last 30 days of contributions.
+
+</details>
 
 <div align="center">
 
@@ -210,7 +234,5 @@ _Fun fact: I enjoy untangling gnarly coding challenges in my spare time._
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
 </picture>
-
-</div>
 
 </div>
