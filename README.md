@@ -1,9 +1,6 @@
-<!-- ===================== HERO ===================== -->
 <div align="center">
 
-<h1 align="center">
-  <img src="assets/banner.svg" width="100%" alt="Hamza Arshad" />
-</h1>
+<h1 align="center"><img src="assets/banner.svg" width="100%" alt="Hamza Arshad" /></h1>
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=22&duration=4500&pause=1500&color=2DBFFF&center=true&vCenter=true&width=520&lines=Assalam-o-Alaikum!;Welcome+to+my+GitHub+profile" alt="Typing SVG" />
@@ -22,12 +19,11 @@
 
 <img src="assets/divider.svg" width="100%" height="2" alt="" />
 
-<!-- ===================== CONTRIBUTION PULSE ===================== -->
 <div align="center">
 
 <h2><img src="assets/icons/pulse.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Pulse</h2>
 
-<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%" />
+<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse" width="100%" />
 
 <sub>An ICU bedside monitor driven by my real GitHub activity. Refreshes every 3 hours via GitHub Actions.</sub>
 
@@ -59,46 +55,31 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 
 <img src="assets/divider.svg" width="100%" height="2" alt="" />
 
-<!-- ===================== GITHUB ENGINEERING STATS ===================== -->
 <div align="center">
 
 <h2><img src="assets/icons/stats.svg" width="26" height="26" align="absmiddle" alt="" /> GitHub Engineering Stats</h2>
 
 <a href="https://streak-stats.demolab.com/">
-  <img
-    src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=1D2C3A&border_radius=14&background=0D1117&ring=2DBFFF&fire=2DBFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=2DBFFF&sideLabels=8B949E&dates=8B949E&mode=daily&locale=en&disable_animations=false"
-    alt="GitHub Streak"
-    width="49%"
-  />
+  <img src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=1D2C3A&border_radius=16&background=0D1117&ring=2DBFFF&fire=2DBFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=2DBFFF&sideLabels=8B949E&dates=8B949E&mode=daily&locale=en" alt="GitHub Streak" width="49%" />
 </a>
-<img
-  src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_radius=14&border_color=1D2C3A&title_color=2DBFFF&text_color=C9D1D9&bg_color=0D1117&custom_title=Technology%20Footprint"
-  alt="Technology Footprint"
-  width="49%"
-/>
+<img src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_radius=16&border_color=1D2C3A&title_color=2DBFFF&text_color=C9D1D9&bg_color=0D1117&custom_title=Technology%20Footprint" alt="Technology Footprint" width="49%" />
 
 </div>
 
 <img src="assets/divider.svg" width="100%" height="2" alt="" />
 
-<!-- ===================== CONTRIBUTION ANALYTICS ===================== -->
 <div align="center">
 
 <h2><img src="assets/icons/analytics.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Analytics</h2>
 
 <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
-  <img
-    src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&theme=react-dark&hide_border=true&bg_color=0D1117&color=C9D1D9&line=2DBFFF&point=FFFFFF&area=true&area_color=2DBFFF"
-    alt="Hamza Arshad GitHub Contribution Analytics"
-    width="98%"
-  />
+  <img src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&theme=react-dark&hide_border=true&bg_color=0D1117&color=C9D1D9&line=2DBFFF&point=FFFFFF&area=true&area_color=2DBFFF" alt="Contribution Analytics" width="98%" />
 </a>
 
 </div>
 
 <img src="assets/divider.svg" width="100%" height="2" alt="" />
 
-<!-- ===================== CONTRIBUTION ACTIVITY ===================== -->
 <div align="center">
 
 <h2><img src="assets/icons/snake.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Activity</h2>
@@ -106,10 +87,9 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
-  <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg" />
 </picture>
 
 </div>
 
-<!-- ===================== FOOTER ===================== -->
 <img src="assets/footer.svg" width="100%" alt="Thanks for visiting" />
