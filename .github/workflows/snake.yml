@@ -2,10 +2,11 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -13,15 +14,18 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: Platane/snk/svg-only@v3
+      - name: Generate snake SVGs (QuranWBW gold theme)
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=D9B84A&color_dots=#2B2618,#5C4A14,#8A6D12,#B08D1A,#D9B84A
-            dist/github-contribution-grid-snake.svg?color_snake=8A6D12&color_dots=#F3EEDD,#E8DFC0,#D6C27A,#C2A23E,#B08D1A
+            dist/github-contribution-grid-snake.svg?color_snake=#B1901F&color_dots=#F3EBD3,#E6D8A3,#D4BC5C,#B1901F,#8A6D12
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#DCA54C&color_dots=#2E2230,#5A4528,#8F6A33,#C48F40,#DCA54C
 
-      - uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
