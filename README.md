@@ -34,12 +34,6 @@ I build clean, type-safe, production-ready applications - and I'm currently open
 
 I'm rebuilding my engineering path through focused, production-minded work: open-source contributions, real deployed projects, and clean documented code — the kind of evidence that speaks louder than a resume.
 
-# 💓 Coding Heartbeat
-
-![ECG](assets/ecg.svg)
-
-Roz commit = zinda dil. Commit nahi = flatline. ☠️
-
 - 🔭 Currently building full-stack apps with **type safety, reliability, and clear architecture** in mind
 - 💬 Ask me about: TypeScript, React, Next.js, Node.js, Go, PostgreSQL, Docker, or API design
 - 💼 Focused on **testable code** (unit + integration), **Dockerized deployments**, and **CI/CD**
@@ -92,6 +86,20 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 
 --->
 
+<!-- ========================================================= -->
+<!--                      CODING HEARTBEAT                     -->
+<!-- ========================================================= -->
+
+<div align="center">
+
+## 💓 Coding Heartbeat
+
+<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="ECG" width="100%"/>
+
+Roz commit = zinda dil. Commit nahi = flatline. ☠️
+
+</div>
+
 <div align="center">
 
   <a href="https://github.com/thehamzaarshad">
@@ -128,6 +136,7 @@ src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaar
 alt="Technology Footprint"
 width="49%"
 />
+</p>
 
 <!-- ========================================================= -->
 <!--                  CONTRIBUTION ANALYTICS                   -->
@@ -197,11 +206,13 @@ _Fun fact: I enjoy untangling gnarly coding challenges in my spare time._
 
 <div align="center">
 
-<picture>
-
 <!-- Snake -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
 </picture>
+
+</div>
+
+</div>
