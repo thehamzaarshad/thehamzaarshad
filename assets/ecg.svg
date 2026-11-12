@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 240" width="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%">
 <defs>
  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
   <stop offset="0" stop-color="#0d1420"/><stop offset="1" stop-color="#070b12"/>
  </linearGradient>
  <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#22d3a0" stop-opacity=".7"/><stop offset="1" stop-color="#38bdf8" stop-opacity=".7"/>
+ </linearGradient>
+ <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#22d3a0"/><stop offset="1" stop-color="#38bdf8"/>
  </linearGradient>
  <linearGradient id="m" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#000"/><stop offset=".1" stop-color="#fff"/>
@@ -18,14 +21,6 @@
   <path d="M30,0 L0,0 L0,30" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
  </pattern>
  <filter id="glow" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
- <path id="b" d="M0,130 L40,130 L52,122 L64,130 L80,130 L88,140 L96,66 L106,158 L114,130 L140,130 L152,116 L168,130 L200,130" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
- <g id="wave">
-  <use href="#b" xlink:href="#b" x="0"/><use href="#b" xlink:href="#b" x="200"/>
-  <use href="#b" xlink:href="#b" x="400"/><use href="#b" xlink:href="#b" x="600"/>
-  <use href="#b" xlink:href="#b" x="800"/><use href="#b" xlink:href="#b" x="1000"/>
-  <use href="#b" xlink:href="#b" x="1200"/><use href="#b" xlink:href="#b" x="1400"/>
-  <use href="#b" xlink:href="#b" x="1600"/><use href="#b" xlink:href="#b" x="1800"/>
- </g>
 </defs>
 
 <rect x="1" y="1" width="1198" height="238" rx="20" fill="url(#bg)" stroke="url(#stroke)" stroke-width="1.5"/>
@@ -38,17 +33,18 @@
  <text x="1160" y="40" fill="#22d3a0" font-size="34" font-weight="800" text-anchor="end" font-family="ui-monospace,Consolas,monospace">72<tspan fill="#8b98a8" font-size="14" font-weight="600" dx="6">BPM</tspan></text>
 </g>
 
+
 <g mask="url(#fade)">
  <g>
-  <g stroke="#22d3a0" stroke-width="7" opacity=".35" filter="url(#glow)"><use href="#wave" xlink:href="#wave"/></g>
-  <g stroke="#22d3a0" stroke-width="3"><use href="#wave" xlink:href="#wave"/></g>
-  <animateTransform attributeName="transform" type="translate" from="0 0" to="-600 0" dur="3s" repeatCount="indefinite"/>
+  <path d="M0,130 L0.0,130.0 L40.0,130.0 L52.0,122.0 L64.0,130.0 L80.0,130.0 L88.0,140.0 L96.0,66.0 L106.0,158.0 L114.0,130.0 L140.0,130.0 L152.0,116.0 L168.0,130.0 L200.0,130.0 L200.0,130.0 L200.0,130.0 L240.0,130.0 L252.0,122.0 L264.0,130.0 L280.0,130.0 L288.0,140.0 L296.0,66.0 L306.0,158.0 L314.0,130.0 L340.0,130.0 L352.0,116.0 L368.0,130.0 L400.0,130.0 L400.0,130.0 L400.0,130.0 L440.0,130.0 L452.0,122.0 L464.0,130.0 L480.0,130.0 L488.0,140.0 L496.0,66.0 L506.0,158.0 L514.0,130.0 L540.0,130.0 L552.0,116.0 L568.0,130.0 L600.0,130.0 L600.0,130.0 L600.0,130.0 L640.0,130.0 L652.0,122.0 L664.0,130.0 L680.0,130.0 L688.0,140.0 L696.0,66.0 L706.0,158.0 L714.0,130.0 L740.0,130.0 L752.0,116.0 L768.0,130.0 L800.0,130.0 L800.0,130.0 L800.0,130.0 L840.0,130.0 L852.0,122.0 L864.0,130.0 L880.0,130.0 L888.0,140.0 L896.0,66.0 L906.0,158.0 L914.0,130.0 L940.0,130.0 L952.0,116.0 L968.0,130.0 L1000.0,130.0 L1000.0,130.0 L1000.0,130.0 L1040.0,130.0 L1052.0,122.0 L1064.0,130.0 L1080.0,130.0 L1088.0,140.0 L1096.0,66.0 L1106.0,158.0 L1114.0,130.0 L1140.0,130.0 L1152.0,116.0 L1168.0,130.0 L1200.0,130.0 L1200.0,130.0 L1200.0,130.0 L1240.0,130.0 L1252.0,122.0 L1264.0,130.0 L1280.0,130.0 L1288.0,140.0 L1296.0,66.0 L1306.0,158.0 L1314.0,130.0 L1340.0,130.0 L1352.0,116.0 L1368.0,130.0 L1400.0,130.0 L1400.0,130.0 L1400.0,130.0 L1440.0,130.0 L1452.0,122.0 L1464.0,130.0 L1480.0,130.0 L1488.0,140.0 L1496.0,66.0 L1506.0,158.0 L1514.0,130.0 L1540.0,130.0 L1552.0,116.0 L1568.0,130.0 L1600.0,130.0 L1600.0,130.0" stroke="#22d3a0" stroke-width="7" fill="none" opacity=".35" filter="url(#glow)" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M0,130 L0.0,130.0 L40.0,130.0 L52.0,122.0 L64.0,130.0 L80.0,130.0 L88.0,140.0 L96.0,66.0 L106.0,158.0 L114.0,130.0 L140.0,130.0 L152.0,116.0 L168.0,130.0 L200.0,130.0 L200.0,130.0 L200.0,130.0 L240.0,130.0 L252.0,122.0 L264.0,130.0 L280.0,130.0 L288.0,140.0 L296.0,66.0 L306.0,158.0 L314.0,130.0 L340.0,130.0 L352.0,116.0 L368.0,130.0 L400.0,130.0 L400.0,130.0 L400.0,130.0 L440.0,130.0 L452.0,122.0 L464.0,130.0 L480.0,130.0 L488.0,140.0 L496.0,66.0 L506.0,158.0 L514.0,130.0 L540.0,130.0 L552.0,116.0 L568.0,130.0 L600.0,130.0 L600.0,130.0 L600.0,130.0 L640.0,130.0 L652.0,122.0 L664.0,130.0 L680.0,130.0 L688.0,140.0 L696.0,66.0 L706.0,158.0 L714.0,130.0 L740.0,130.0 L752.0,116.0 L768.0,130.0 L800.0,130.0 L800.0,130.0 L800.0,130.0 L840.0,130.0 L852.0,122.0 L864.0,130.0 L880.0,130.0 L888.0,140.0 L896.0,66.0 L906.0,158.0 L914.0,130.0 L940.0,130.0 L952.0,116.0 L968.0,130.0 L1000.0,130.0 L1000.0,130.0 L1000.0,130.0 L1040.0,130.0 L1052.0,122.0 L1064.0,130.0 L1080.0,130.0 L1088.0,140.0 L1096.0,66.0 L1106.0,158.0 L1114.0,130.0 L1140.0,130.0 L1152.0,116.0 L1168.0,130.0 L1200.0,130.0 L1200.0,130.0 L1200.0,130.0 L1240.0,130.0 L1252.0,122.0 L1264.0,130.0 L1280.0,130.0 L1288.0,140.0 L1296.0,66.0 L1306.0,158.0 L1314.0,130.0 L1340.0,130.0 L1352.0,116.0 L1368.0,130.0 L1400.0,130.0 L1400.0,130.0 L1400.0,130.0 L1440.0,130.0 L1452.0,122.0 L1464.0,130.0 L1480.0,130.0 L1488.0,140.0 L1496.0,66.0 L1506.0,158.0 L1514.0,130.0 L1540.0,130.0 L1552.0,116.0 L1568.0,130.0 L1600.0,130.0 L1600.0,130.0" stroke="url(#line)" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <animateTransform attributeName="transform" type="translate" from="0 0" to="-200.0 0" dur="0.83s" repeatCount="indefinite"/>
  </g>
 </g>
 
 <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
- <rect x="30" y="206" width="89" height="26" rx="13" fill="#22d3a0" fill-opacity=".14" stroke="#22d3a0" stroke-opacity=".5"/>
- <text x="74" y="224" fill="#22d3a0" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">ALIVE</text>
- <text x="1170" y="224" fill="#8b98a8" font-size="14" text-anchor="end" font-family="ui-monospace,Consolas,monospace">Last activity just now · @thehamzaarshad</text>
+ <rect x="30" y="206" width="100" height="26" rx="13" fill="#22d3a0" fill-opacity=".14" stroke="#22d3a0" stroke-opacity=".5"/>
+ <text x="80" y="224" fill="#22d3a0" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">NORMAL</text>
+ <text x="1170" y="224" fill="#8b98a8" font-size="14" text-anchor="end" font-family="ui-monospace,Consolas,monospace">Last activity just now ago · 4 in 24h · @thehamzaarshad</text>
 </g>
 </svg>
