@@ -20,14 +20,14 @@
 
 <a href="https://github.com/thehamzaarshad">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=DCA54C&labelColor=4A4024&style=for-the-badge" />
-  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=B1901F&labelColor=8A6D12&style=for-the-badge" alt="Profile views" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=DCA54C&labelColor=20161F&style=for-the-badge" />
+  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=B1901F&labelColor=000000&style=for-the-badge" alt="Profile views" />
 </picture>
 </a>
 <a href="https://github.com/thehamzaarshad?tab=followers">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github&color=DCA54C&labelColor=4A4024&logoColor=F3EEDD" />
-  <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github&color=B1901F&labelColor=8A6D12&logoColor=FFFFFF" alt="GitHub followers" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github&color=DCA54C&labelColor=20161F&logoColor=DCA54C" />
+  <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github&color=B1901F&labelColor=000000&logoColor=FFFFFF" alt="GitHub followers" />
 </picture>
 </a>
 
@@ -148,13 +148,13 @@
 
 <a href="https://streak-stats.demolab.com/">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=thehamzaarshad&hide_border=false&border=4A4024&background=1A160C&ring=DCA54C&fire=DCA54C&currStreakNum=E8C55A&sideNums=F3EEDD&currStreakLabel=DCA54C&sideLabels=A0967D&dates=A0967D&mode=daily&locale=en&disable_animations=true" />
-  <img src="https://streak-stats.demolab.com/?user=thehamzaarshad&hide_border=false&border=E8DFC0&background=F9F6EE&ring=B1901F&fire=B1901F&currStreakNum=8A6D12&sideNums=6B5A2E&currStreakLabel=B1901F&sideLabels=6B6B6B&dates=6B6B6B&mode=daily&locale=en&disable_animations=true" alt="GitHub streak stats" width="49%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=thehamzaarshad&hide_border=false&border=DCA54C&background=20161F&ring=DCA54C&fire=DCA54C&currStreakNum=DCA54C&sideNums=DCA54C&currStreakLabel=DCA54C&sideLabels=DCA54C&dates=DCA54C&mode=daily&locale=en&disable_animations=true" />
+  <img src="https://streak-stats.demolab.com/?user=thehamzaarshad&hide_border=false&border=B1901F&background=FFFFFF&ring=B1901F&fire=B1901F&currStreakNum=000000&sideNums=000000&currStreakLabel=B1901F&sideLabels=000000&dates=000000&mode=daily&locale=en&disable_animations=true" alt="GitHub streak stats" width="49%" />
 </picture>
 </a>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&hide_border=false&border_color=4A4024&title_color=DCA54C&text_color=F3EEDD&bg_color=1A160C&custom_title=Technology%20Footprint" />
-  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&hide_border=false&border_color=E8DFC0&title_color=B1901F&text_color=555555&bg_color=F9F6EE&custom_title=Technology%20Footprint" alt="Most used programming languages" width="49%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&hide_border=false&border_color=DCA54C&title_color=DCA54C&text_color=DCA54C&bg_color=20161F&custom_title=Technology%20Footprint" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&hide_border=false&border_color=B1901F&title_color=B1901F&text_color=000000&bg_color=FFFFFF&custom_title=Technology%20Footprint" alt="Most used programming languages" width="49%" />
 </picture>
 
 </div>
@@ -176,8 +176,8 @@
 
 <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=1A160C&color=F3EEDD&line=DCA54C&point=E8C55A&area=true&area_color=DCA54C" />
-  <img src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=F9F6EE&color=6B5A2E&line=B1901F&point=8A6D12&area=true&area_color=B1901F" alt="Graph of my GitHub contributions over the last 31 days" width="98%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=20161F&color=DCA54C&line=DCA54C&point=DCA54C&area=true&area_color=DCA54C" />
+  <img src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&hide_border=true&bg_color=FFFFFF&color=000000&line=B1901F&point=B1901F&area=true&area_color=B1901F" alt="Graph of my GitHub contributions over the last 31 days" width="98%" />
 </picture>
 </a>
 
