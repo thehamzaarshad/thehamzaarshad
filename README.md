@@ -1,7 +1,7 @@
 <!-- ===================== HEADER ===================== -->
 <div align="center">
 
-<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="https://github.com/vinkay215/vinkay215/blob/main/img/verified.gif?raw=true" width="22" alt="verified" /></h1>
+<h1><img src="assets/icons/bolt.svg" width="34" height="34" align="absmiddle" alt="" /> Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="assets/icons/verified.svg" width="24" height="24" align="absmiddle" alt="" /></h1>
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&duration=4500&pause=5000&color=2DBFFF&width=435&lines=Assalam-o-Alaikum!" alt="Typing SVG" />
@@ -14,7 +14,7 @@
 <!-- ===================== CONTRIBUTION PULSE ===================== -->
 <div align="center">
 
-## 📡 Contribution Pulse
+<h2><img src="assets/icons/pulse.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Pulse</h2>
 
 <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%" />
 
@@ -23,7 +23,7 @@
 </div>
 
 <details>
-<summary><b>🩺 How to read my vitals</b></summary>
+<summary><img src="assets/icons/vitals.svg" width="20" height="20" align="absmiddle" alt="" /> <b>How to read my vitals</b></summary>
 
 <br/>
 
@@ -60,7 +60,7 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 <!-- ===================== GITHUB ENGINEERING STATS ===================== -->
 <div align="center">
 
-## 📊 GitHub Engineering Stats
+<h2><img src="assets/icons/stats.svg" width="26" height="26" align="absmiddle" alt="" /> GitHub Engineering Stats</h2>
 
 <a href="https://streak-stats.demolab.com/">
   <img
@@ -82,7 +82,7 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 <!-- ===================== CONTRIBUTION ANALYTICS ===================== -->
 <div align="center">
 
-## 📈 Contribution Analytics
+<h2><img src="assets/icons/analytics.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Analytics</h2>
 
 <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
   <img
@@ -99,7 +99,7 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 <!-- ===================== CONTRIBUTION ACTIVITY ===================== -->
 <div align="center">
 
-## 🐍 Contribution Activity
+<h2><img src="assets/icons/snake.svg" width="26" height="26" align="absmiddle" alt="" /> Contribution Activity</h2>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
