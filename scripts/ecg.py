@@ -1,45 +1,104 @@
-import os, json, datetime, urllib.request
+import os, json, math, datetime, urllib.request
 
 USER = os.environ["GH_USER"]
 TOKEN = os.environ["GH_TOKEN"]
-LIMIT_H = 24
 W, H, BASE = 1200, 240, 130
+SPEED = 240  # px/sec scroll speed (72 BPM => 200px per beat)
 
+# ---------------------------------------------------------------- data
 req = urllib.request.Request(
-    f"https://api.github.com/users/{USER}/events/public",
+    f"https://api.github.com/users/{USER}/events/public?per_page=100",
     headers={"Authorization": f"Bearer {TOKEN}"})
 events = json.load(urllib.request.urlopen(req))
 now = datetime.datetime.now(datetime.timezone.utc)
 times = [datetime.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00")) for e in events]
 hours = (now - max(times)).total_seconds() / 3600 if times else 9999
-alive = hours < LIMIT_H
+n24 = sum(1 for t in times if (now - t).total_seconds() < 86400)
 
-if hours < 1: ago = "just now"
-elif hours < 48: ago = f"{int(hours)}h ago"
-else: ago = f"{int(hours // 24)}d ago"
+if not times: ago = "30d+"
+elif hours < 1: ago = "just now"
+elif hours < 48: ago = f"{int(hours)}h"
+else: ago = f"{int(hours // 24)}d"
 
-beat = [(0,0),(40,0),(52,-8),(64,0),(80,0),(88,10),(96,-64),(106,28),(114,0),(140,0),(152,-14),(168,0),(200,0)]
-pts = ["M0,%d" % BASE]
-for i in range(10):
-    for dx, dy in beat:
-        pts.append(f"L{i*200+dx},{BASE+dy}")
-wave = " ".join(pts)
+# ---------------------------------------------------------- diagnosis
+# state: (label, colour1, colour2, blink-seconds)
+if hours >= 168:                       # 7+ days  -> dead
+    state = "FLATLINE"
+elif hours >= 72:                      # 3-7 days -> irregular, unstable
+    state = "ARRHYTHMIA"
+elif hours >= 24:                      # 1-3 days -> slow, weak
+    state = "BRADYCARDIA"
+elif n24 >= 14:                        # very busy -> fast
+    state = "TACHYCARDIA"
+else:                                  # normal sinus rhythm
+    state = "NORMAL"
 
-C = "#22d3a0" if alive else "#ff4d5e"
-C2 = "#38bdf8" if alive else "#ff8a5e"
+STYLE = {
+    "NORMAL":      ("#22d3a0", "#38bdf8", 1.2),
+    "TACHYCARDIA": ("#fbbf24", "#f97316", 0.6),
+    "BRADYCARDIA": ("#fb923c", "#f59e0b", 1.8),
+    "ARRHYTHMIA":  ("#ff6b4a", "#ef4444", 0.5),
+    "FLATLINE":    ("#ff4d5e", "#ff8a5e", 0),
+}
+C, C2, blink = STYLE[state]
 
-if alive:
+# ---------------------------------------------------------- waveforms
+SHAPE = [(0,0),(40,0),(52,-8),(64,0),(80,0),(88,10),(96,-64),(106,28),
+         (114,0),(140,0),(152,-14),(168,0),(200,0)]          # P-QRS-T
+PVC = [(0,0),(20,-6),(44,-78),(70,52),(92,26),(120,-18),(150,-6),(170,0)]  # wide ectopic beat
+
+def beat(x0, spacing, amp=1.0):
+    sx = min(1.0, spacing / 200)
+    pts = [(x0 + dx * sx, BASE + dy * amp) for dx, dy in SHAPE]
+    pts.append((x0 + spacing, BASE))
+    return pts
+
+def pvc(x0, amp=1.0):
+    return [(x0 + dx, BASE + dy * amp) for dx, dy in PVC]
+
+def build_pattern():
+    """Returns list of (kind, spacing, amp). One full pattern loops seamlessly."""
+    if state == "NORMAL":
+        bpm = 60 + n24 * 3                       # 1 event -> 63 bpm ... 13 events -> 99 bpm
+        return [("n", 14400 / bpm, 1.0)]
+    if state == "TACHYCARDIA":
+        bpm = min(160, 100 + (n24 - 13) * 4)     # more activity -> faster
+        return [("n", 14400 / bpm, 0.9)]
+    if state == "BRADYCARDIA":
+        return [("n", 300, 0.75)]                # ~48 bpm, weaker amplitude
+    if state == "ARRHYTHMIA":                    # irregular spacing + ectopic beat + low amplitude
+        return [("n", 300, 0.55), ("p", 170, 0.9), ("n", 420, 0.5),
+                ("n", 240, 0.6), ("n", 520, 0.45)]
+    return []
+
+pattern = build_pattern()
+
+if pattern:
+    L = sum(s for _, s, _ in pattern)
+    bpm = round(len(pattern) * 60 / (L / SPEED))
+    reps = math.ceil(W / L) + 2
+    pts = ["M0,%d" % BASE]
+    x = 0.0
+    for _ in range(reps):
+        for kind, sp, amp in pattern:
+            seg = pvc(x, amp) if kind == "p" else beat(x, sp, amp)
+            for px, py in seg:
+                pts.append(f"L{px:.1f},{py:.1f}")
+            x += sp
+    wave = " ".join(pts)
+    dur = L / SPEED
     trace = f'''
 <g mask="url(#fade)">
  <g>
   <path d="{wave}" stroke="{C}" stroke-width="7" fill="none" opacity=".35" filter="url(#glow)" stroke-linejoin="round" stroke-linecap="round"/>
   <path d="{wave}" stroke="url(#line)" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-  <animateTransform attributeName="transform" type="translate" from="0 0" to="-600 0" dur="3s" repeatCount="indefinite"/>
+  <animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.1f} 0" dur="{dur:.2f}s" repeatCount="indefinite"/>
  </g>
 </g>'''
-    bpm, label, sub = "72", "ALIVE", f"Last activity {ago}"
-    badge_anim = '<animate attributeName="opacity" values="1;.25;1" dur="1.2s" repeatCount="indefinite"/>'
+    sub = f"Last activity {ago} ago · {n24} in 24h"
+    badge_anim = f'<animate attributeName="opacity" values="1;.25;1" dur="{blink}s" repeatCount="indefinite"/>'
 else:
+    bpm = 0
     trace = f'''
 <g mask="url(#fade)">
  <path d="M0,{BASE} L{W},{BASE}" stroke="{C}" stroke-width="7" fill="none" opacity=".3" filter="url(#glow)"/>
@@ -47,8 +106,11 @@ else:
   <animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/>
  </path>
 </g>'''
-    bpm, label, sub = "0", "FLATLINE", f"No activity for {ago.replace(' ago','')}"
+    sub = f"No activity for {ago}"
     badge_anim = ""
+
+label = state
+lw = 34 + len(label) * 11
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%">
 <defs>
@@ -88,8 +150,8 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="1
 {trace}
 
 <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
- <rect x="30" y="206" width="{34 + len(label)*11}" height="26" rx="13" fill="{C}" fill-opacity=".14" stroke="{C}" stroke-opacity=".5"/>
- <text x="{30 + (34 + len(label)*11)//2}" y="224" fill="{C}" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">{label}</text>
+ <rect x="30" y="206" width="{lw}" height="26" rx="13" fill="{C}" fill-opacity=".14" stroke="{C}" stroke-opacity=".5"/>
+ <text x="{30 + lw//2}" y="224" fill="{C}" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">{label}</text>
  <text x="{W-30}" y="224" fill="#8b98a8" font-size="14" text-anchor="end" font-family="ui-monospace,Consolas,monospace">{sub} · @{USER}</text>
 </g>
 </svg>'''
