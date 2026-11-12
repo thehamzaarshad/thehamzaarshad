@@ -6,8 +6,6 @@
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/banner-light.svg" alt="Hamza Arshad" width="100%" />
 </picture>
 
-<h1 align="center">Hi, I'm Hamza</h1>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-light.svg" alt="Assalam-o-Alaikum!" />
