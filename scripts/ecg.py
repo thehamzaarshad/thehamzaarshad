@@ -17,6 +17,8 @@ Human-like live model:
   Header shows LAST ACTIVITY (date/time of last GitHub activity); in asystole
   the same time is shown as TIME OF DEATH.
 
+  TEST BRANCH: ASYSTOLE_MIN defaults to 1 minute of inactivity (real value: 168 * 60).
+
 Testing (no network / token needed):
     python3 scripts/ecg.py --demo all --out-dir demo       # open demo/index.html
     python3 scripts/ecg.py --demo working --out /tmp/o.svg   # -> /tmp/o-dark.svg, /tmp/o-light.svg
@@ -47,6 +49,7 @@ REST, PEAK = 70, 130        # resting / maximum working BPM
 TAU_REC = 15.0              # minutes: recovery time constant after activity
 TAU_RISE = 3.0              # minutes: ramp-up after an event
 K_LOAD = 4.0                # load needed for ~63% of max effort
+ASYSTOLE_MIN = float(os.environ.get("ASYSTOLE_MIN", 1))   # TEST: 1 minute (real value: 168 * 60)
 
 TAU = 2 * math.pi
 clamp = lambda v, a, b: max(a, min(b, v))
@@ -253,7 +256,7 @@ def state_from_activity(st, rng):
     side = dict(n24=st["n24"], streak=st["streak"], repos7=st["repos7"])
     trend = st["series"][-30:]
     hours = st["hours"]
-    if hours >= 168:
+    if hours * 60 >= ASYSTOLE_MIN:
         return make_state("live", bpm=None, rate=0, ir=1.0, spo2=None, mode="asystole", side=side, trend=trend,
                           last=st["last"], last_exact=st["last_exact"])
 
