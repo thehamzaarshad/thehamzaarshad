@@ -14,6 +14,8 @@ Human-like live model:
   HRV       35-60 ms        ~10-15 ms (falls with effort)
 
   Heart icon + header dot beat at exactly 60 / BPM seconds.
+  Header shows LAST ACTIVITY (date/time of last GitHub activity); in asystole
+  the same time is shown as TIME OF DEATH.
 
 Testing (no network / token needed):
     python3 scripts/ecg.py --demo all --out-dir demo       # open demo/index.html
@@ -51,6 +53,12 @@ clamp = lambda v, a, b: max(a, min(b, v))
 g = lambda dt, c, w: math.exp(-((dt - c) / w) ** 2)
 
 MONO = "ui-monospace,Consolas,monospace"
+
+def fmt_last(dt, exact):
+    """Last activity as text. exact=False means only the date is known."""
+    if dt is None:
+        return "NO ACTIVITY ON RECORD"
+    return dt.strftime("%d %b %Y %H:%M UTC" if exact else "%d %b %Y").upper()
 
 # ---------------------------------------------------------------- theme
 PALETTES = {
@@ -121,6 +129,7 @@ WEIGHT = {"PushEvent": 1.0, "PullRequestEvent": 1.6, "PullRequestReviewEvent": 1
 
 def activity_stats(events, cal, now):
     today = now.date()
+    utc = datetime.timezone.utc
     rows = []
     for e in events:
         t = datetime.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))
@@ -134,9 +143,18 @@ def activity_stats(events, cal, now):
 
     hours = min((r[0] for r in rows), default=9999.0)
     past = [d for d, c in daily.items() if c > 0 and d <= today]
+
+    # LAST ACTIVITY: exact time from events if available, else only the calendar date
+    last_dt, last_exact = None, False
+    if rows:
+        last_dt, last_exact = max(r[1] for r in rows), True
+    if past:
+        ld = max(past)
+        if last_dt is None or ld > last_dt.date():
+            last_dt, last_exact = datetime.datetime.combine(ld, datetime.time(0), utc), False
+
     if past:
         last = max(past)
-        utc = datetime.timezone.utc
         if last == today:
             h_cal = (now - datetime.datetime.combine(today, datetime.time(0), utc)).total_seconds() / 7200
         else:
@@ -164,7 +182,8 @@ def activity_stats(events, cal, now):
 
     m7, m30 = sum(series[-7:]) / 7, sum(series[-30:]) / 30
     return dict(hours=hours, load=load, n24=n24, repos7=repos7, streak=streak,
-                active7=act(7), active30=act(30), m7=m7, m30=m30, series=series)
+                active7=act(7), active30=act(30), m7=m7, m30=m30, series=series,
+                last=last_dt, last_exact=last_exact)
 
 # ---------------------------------------------------------------- states
 def news2(hr, spo2, sbp, rr):
@@ -205,7 +224,8 @@ def rhythm_of(bpm, ir):
 def make_state(name, **kw):
     S = dict(name=name, bpm=76, rate=None, ir=0.0, spo2=98, mode="normal", art=0.0, effort=0.0,
              sys=118, dia=76, rr=16, hrv=48, trend=None,
-             side=dict(n24=4, streak=9, repos7=14), extra=[], rhythm=None)
+             side=dict(n24=4, streak=9, repos7=14), extra=[], rhythm=None,
+             last=None, last_exact=True)
     S.update(kw)
     if S["rate"] is None:
         S["rate"] = S["bpm"] or 0
@@ -234,7 +254,8 @@ def state_from_activity(st, rng):
     trend = st["series"][-30:]
     hours = st["hours"]
     if hours >= 168:
-        return make_state("live", bpm=None, rate=0, ir=1.0, spo2=None, mode="asystole", side=side, trend=trend)
+        return make_state("live", bpm=None, rate=0, ir=1.0, spo2=None, mode="asystole", side=side, trend=trend,
+                          last=st["last"], last_exact=st["last_exact"])
 
     # effort: 0 = fully rested, ~1 = working hard right now
     effort = 1 - math.exp(-st["load"] / K_LOAD)
@@ -260,7 +281,7 @@ def state_from_activity(st, rng):
     hrv = int(round(clamp((35 + 25 * cons) * (1 - 0.75 * effort) + rng.randint(-2, 2), 5, 80)))
 
     return make_state("live", bpm=bpm, ir=ir, spo2=spo2, sys=sys_, dia=dia, rr=rr, effort=effort,
-                      hrv=hrv, side=side, trend=trend)
+                      hrv=hrv, side=side, trend=trend, last=st["last"], last_exact=st["last_exact"])
 
 DEMOS = {
     "normal":    dict(),
@@ -535,6 +556,15 @@ def render(S, user, now, rng, still=False):
     leads_txt = (f'<text x="{TX + TW // 2}" y="{ECG_Y - 18}" fill="{C}" font-size="13" font-weight="800" '
                  f'text-anchor="middle" letter-spacing="3" font-family="{MONO}">ECG LEADS OFF</text>') if leads_off else ""
 
+    # LAST ACTIVITY (normal) / TIME OF DEATH (asystole): same timestamp, never changes until new activity
+    dead = S["mode"] == "asystole"
+    last_str = fmt_last(S["last"], S["last_exact"])
+    lbl, lcol = ("TIME OF DEATH", LEVEL_COL[2]) if dead else ("LAST ACTIVITY", "#6b7a8c")
+    last_svg = (f'<text x="{W - 24}" y="60" fill="{lcol}" font-size="12" text-anchor="end" '
+                f'letter-spacing="1" font-family="{MONO}">{lbl} {last_str}</text>')
+    tod_txt = (f'<text x="{TX + TW // 2}" y="{ECG_Y - 18}" fill="{LEVEL_COL[2]}" font-size="14" font-weight="800" '
+               f'text-anchor="middle" letter-spacing="3" font-family="{MONO}">TIME OF DEATH {last_str}</text>') if dead else ""
+
     nibp = f'{S["sys"]}/{S["dia"]}' if S["sys"] else "--/--"
     rr_v = S["rr"] if S["rr"] else "--"
     hrv_v = S["hrv"] if S["hrv"] is not None else "--"
@@ -583,6 +613,7 @@ def render(S, user, now, rng, still=False):
  <text x="62" y="60" fill="#6b7a8c" font-size="12" letter-spacing="1" font-family="{MONO}">@{user} \u00b7 LEAD II \u00b7 {S["rhythm"]}</text>
  {banner_svg(S, C)}
  <text x="{W - 24}" y="40" fill="#6b7a8c" font-size="12" text-anchor="end" letter-spacing="1" font-family="{MONO}">UPDATED {now.strftime("%H:%M")} UTC</text>
+ {last_svg}
 </g>
 
 <rect x="{TX}" y="{PY}" width="{TW}" height="{PH}" rx="14" fill="#070b12" fill-opacity=".7" stroke="#fff" stroke-opacity=".08"/>
@@ -596,6 +627,7 @@ def render(S, user, now, rng, still=False):
  <text x="{TX + TW - 16}" y="{PY + PH - 10}" fill="#6b7a8c" font-size="10" text-anchor="end">25 mm/s</text>
 </g>
 {leads_txt}
+{tod_txt}
 <g transform="translate({TX},0)"><g clip-path="url(#outer)">
  {group("cA", "ecgA", "ppgA")}
  {group("cB", "ecgB", "ppgB")}
@@ -648,6 +680,8 @@ def main():
         cells = []
         for n in names:
             S = make_state(n, **DEMOS[n])
+            S["last"] = now - datetime.timedelta(days=8 if n == "asystole" else 0, minutes=5)
+            S["last_exact"] = True
             out = os.path.join(a.out_dir, f"{n}.svg") if a.demo == "all" else a.out
             write_themes(S, "demo", now, 7, a.still, out)
             alarms = ", ".join(t for _, t in S["alarms"]) or "-"
@@ -673,7 +707,8 @@ def main():
     S = state_from_activity(st, random.Random(seed + 1))
     write_themes(S, user, now, seed, a.still, a.out)
     print(f"load={st['load']:.2f} effort={S['effort']:.2f} state={S['rhythm']} bpm={S['bpm']} spo2={S['spo2']} "
-          f"nibp={S['sys']}/{S['dia']} rr={S['rr']} hrv={S['hrv']} news2={S['news']} level={S['level']}")
+          f"nibp={S['sys']}/{S['dia']} rr={S['rr']} hrv={S['hrv']} news2={S['news']} level={S['level']} "
+          f"last={fmt_last(S['last'], S['last_exact'])}")
 
 if __name__ == "__main__":
     main()
