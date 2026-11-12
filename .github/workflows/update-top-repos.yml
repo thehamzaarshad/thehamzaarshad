@@ -1,0 +1,45 @@
+name: Update Top Starred Repos
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update README with Top Repos
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const username = 'thehamzaarshad';
+            
+            const repos = await github.rest.repos.listForUser({
+              username: username,
+              sort: 'updated',
+              per_page: 100
+            });
+            
+            const sorted = repos.data
+              .filter(r => !r.fork)
+              .sort((a,b) => b.stargazers_count - a.stargazers_count)
+              .slice(0, 4);
+
+            let table = `| Project | ⭐ Stars | 🍴 Forks | Links |\n|---|---|---|---|\n`;
+            for (const r of sorted) {
+              table += `| **[${r.name}](${r.html_url})**<br><sub>${r.description || ''}</sub> | ![Stars](https://img.shields.io/github/stars/${username}/${r.name}?style=flat-square&color=DCA54C&labelColor=20161F) | ![Forks](https://img.shields.io/github/forks/${username}/${r.name}?style=flat-square&color=20161F&labelColor=DCA54C) | [⭐ Star](${r.html_url}) \\| [🍴 Fork](${r.html_url}/fork) |\n`;
+            }
+
+            let readme = fs.readFileSync('README.md', 'utf8');
+            const start = '<!-- TOP-REPOS:START -->';
+            const end = '<!-- TOP-REPOS:END -->';
+            const regex = new RegExp(`${start}[\\s\\S]*?${end}`, 'm');
+            readme = readme.replace(regex, `${start}\n\n### 🔥 Top Starred Repos (Auto Updated)\n\n${table}\n${end}`);
+            fs.writeFileSync('README.md', readme);
