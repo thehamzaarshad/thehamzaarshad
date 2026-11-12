@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none">
+<style>
+.a{fill:#2DBFFF;transform-box:fill-box;transform-origin:bottom;animation:g 2.8s ease-in-out infinite}
+.a2{animation-delay:.2s}.a3{animation-delay:.4s}.a4{animation-delay:.6s}
+@keyframes g{0%{transform:scaleY(.15)}40%,80%{transform:scaleY(1)}100%{transform:scaleY(.15)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<path d="M3 3v18h18" stroke="#2DBFFF" stroke-opacity=".5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="a" x="6.5" y="12" width="3" height="7" rx="1"/>
+<rect class="a a2" x="11" y="8" width="3" height="11" rx="1"/>
+<rect class="a a3" x="15.5" y="10.5" width="3" height="8.5" rx="1"/>
+<rect class="a a4" x="20" y="5" width="0" height="0"/>
+</svg>

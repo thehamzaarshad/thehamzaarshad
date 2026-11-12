@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="none">
+<style>
+.b{stroke:#2DBFFF;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:70;stroke-dashoffset:70;animation:d 2.4s ease-out infinite,g 2.4s ease-in-out infinite}
+.f{fill:#2DBFFF;opacity:0;animation:f 2.4s ease-in-out infinite}
+@keyframes d{0%{stroke-dashoffset:70}50%,100%{stroke-dashoffset:0}}
+@keyframes f{0%,40%{opacity:0}60%,85%{opacity:.9}100%{opacity:0}}
+@keyframes g{0%,100%{filter:drop-shadow(0 0 0 #2DBFFF)}60%{filter:drop-shadow(0 0 4px #2DBFFF)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.b{stroke-dashoffset:0}.f{opacity:.9}}
+</style>
+<path class="f" d="M13 2 4 14h6l-1 8 9-12h-6z"/>
+<path class="b" d="M13 2 4 14h6l-1 8 9-12h-6z"/>
+</svg>
