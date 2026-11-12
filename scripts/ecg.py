@@ -50,8 +50,8 @@ REST, PEAK = 70, 130        # resting / maximum working BPM
 TAU_REC = 15.0              # minutes: recovery time constant after activity
 TAU_RISE = 3.0              # minutes: ramp-up after an event
 K_LOAD = 4.0                # load needed for ~63% of max effort
-DEAD_H = 72.0               # hours of inactivity before asystole
-SLOW_H = 24.0               # after this many idle hours the heart starts slowing
+DEAD_H = 168.0               # hours of inactivity before asystole
+SLOW_H = 48.0               # after this many idle hours the heart starts slowing
 
 TAU = 2 * math.pi
 clamp = lambda v, a, b: max(a, min(b, v))
