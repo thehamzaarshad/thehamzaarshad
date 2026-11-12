@@ -1,36 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="190" viewBox="0 0 900 190">
-  <defs>
-    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#B1901F" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#B1901F"/>
-      <stop offset="100%" stop-color="#B1901F" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-
-  <rect x="1" y="1" width="898" height="188" rx="40" fill="#FFF8EC" stroke="#E8C86A" stroke-width="2"/>
-
-  <g opacity="0.28" stroke="#B1901F" fill="none">
-    <rect x="57" y="57" width="76" height="76" stroke-width="2"/>
-    <rect x="71" y="71" width="48" height="48" stroke-width="2"/>
-    <polygon points="95,57 133,95 95,133 57,133 57,57" stroke-width="2" transform="rotate(45 95 95)"/>
-  </g>
-  <g opacity="0.28" stroke="#B1901F" fill="none">
-    <rect x="767" y="57" width="76" height="76" stroke-width="2"/>
-    <rect x="781" y="71" width="48" height="48" stroke-width="2"/>
-    <polygon points="805,57 843,95 805,133 767,133 767,57" stroke-width="2" transform="rotate(45 805 95)"/>
-  </g>
-
-  <!-- NAME + TICK -->
-  <g>
-    <text x="428" y="116" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="5" fill="#B1901F">HAMZA ARSHAD</text>
-    <!-- Gold Tick -->
-    <g transform="translate(652, 94)">
-      <circle r="17" fill="#B1901F"/>
-      <path d="M -8 -1 L -2 7 L 9 -7" fill="none" stroke="#FFF8EC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M 22 -15 l 2 4 -4 2 -2 -4 z" fill="#B1901F"/>
-    </g>
-  </g>
-
-  <line x1="330" y1="133" x2="570" y2="133" stroke="url(#line)" stroke-width="2"/>
-  <polygon points="450,127 456,133 450,139 444,133" fill="#B1901F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" width="900" height="190" role="img" aria-label="Hamza Arshad">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#B1901F" stop-opacity="0"/><stop offset=".5" stop-color="#B1901F"/><stop offset="1" stop-color="#B1901F" stop-opacity="0"/></linearGradient></defs>
+<rect x="1" y="1" width="898" height="188" rx="40" fill="#F9F6EE" stroke="#E8DFC0" stroke-width="2"/>
+<g transform="translate(95 95)" fill="none" stroke="#B1901F" stroke-width="1.5" opacity="0.28"><rect x="-38" y="-38" width="76" height="76"/><rect x="-38" y="-38" width="76" height="76" transform="rotate(45)"/></g><g transform="translate(95 95)" fill="none" stroke="#B1901F" stroke-width="1.5" opacity="0.18"><rect x="-24" y="-24" width="48" height="48"/><rect x="-24" y="-24" width="48" height="48" transform="rotate(45)"/></g><g transform="translate(805 95)" fill="none" stroke="#B1901F" stroke-width="1.5" opacity="0.28"><rect x="-38" y="-38" width="76" height="76"/><rect x="-38" y="-38" width="76" height="76" transform="rotate(45)"/></g><g transform="translate(805 95)" fill="none" stroke="#B1901F" stroke-width="1.5" opacity="0.18"><rect x="-24" y="-24" width="48" height="48"/><rect x="-24" y="-24" width="48" height="48" transform="rotate(45)"/></g>
+<text x="450" y="108" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="44" fill="#B1901F" textLength="520" lengthAdjust="spacing">HAMZA ARSHAD</text>
+<rect x="330" y="132" width="240" height="2" fill="url(#g)"/>
+<rect x="446" y="129" width="8" height="8" fill="#B1901F" transform="rotate(45 450 133)"><animate attributeName="opacity" values="1;0.35;1" dur="2.4s" repeatCount="indefinite"/></rect>
 </svg>
