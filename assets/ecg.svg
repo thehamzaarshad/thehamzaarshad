@@ -1,13 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 240" width="100%">
 <defs>
  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
   <stop offset="0" stop-color="#0d1420"/><stop offset="1" stop-color="#070b12"/>
  </linearGradient>
  <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#22d3a0" stop-opacity=".7"/><stop offset="1" stop-color="#38bdf8" stop-opacity=".7"/>
- </linearGradient>
- <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#22d3a0"/><stop offset="1" stop-color="#38bdf8"/>
  </linearGradient>
  <linearGradient id="m" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#000"/><stop offset=".1" stop-color="#fff"/>
@@ -21,6 +18,14 @@
   <path d="M30,0 L0,0 L0,30" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
  </pattern>
  <filter id="glow" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+ <path id="b" d="M0,130 L40,130 L52,122 L64,130 L80,130 L88,140 L96,66 L106,158 L114,130 L140,130 L152,116 L168,130 L200,130" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+ <g id="wave">
+  <use href="#b" xlink:href="#b" x="0"/><use href="#b" xlink:href="#b" x="200"/>
+  <use href="#b" xlink:href="#b" x="400"/><use href="#b" xlink:href="#b" x="600"/>
+  <use href="#b" xlink:href="#b" x="800"/><use href="#b" xlink:href="#b" x="1000"/>
+  <use href="#b" xlink:href="#b" x="1200"/><use href="#b" xlink:href="#b" x="1400"/>
+  <use href="#b" xlink:href="#b" x="1600"/><use href="#b" xlink:href="#b" x="1800"/>
+ </g>
 </defs>
 
 <rect x="1" y="1" width="1198" height="238" rx="20" fill="url(#bg)" stroke="url(#stroke)" stroke-width="1.5"/>
@@ -33,11 +38,10 @@
  <text x="1160" y="40" fill="#22d3a0" font-size="34" font-weight="800" text-anchor="end" font-family="ui-monospace,Consolas,monospace">72<tspan fill="#8b98a8" font-size="14" font-weight="600" dx="6">BPM</tspan></text>
 </g>
 
-
 <g mask="url(#fade)">
  <g>
-  <path d="M0,130 L0,130 L40,130 L52,122 L64,130 L80,130 L88,140 L96,66 L106,158 L114,130 L140,130 L152,116 L168,130 L200,130 L200,130 L240,130 L252,122 L264,130 L280,130 L288,140 L296,66 L306,158 L314,130 L340,130 L352,116 L368,130 L400,130 L400,130 L440,130 L452,122 L464,130 L480,130 L488,140 L496,66 L506,158 L514,130 L540,130 L552,116 L568,130 L600,130 L600,130 L640,130 L652,122 L664,130 L680,130 L688,140 L696,66 L706,158 L714,130 L740,130 L752,116 L768,130 L800,130 L800,130 L840,130 L852,122 L864,130 L880,130 L888,140 L896,66 L906,158 L914,130 L940,130 L952,116 L968,130 L1000,130 L1000,130 L1040,130 L1052,122 L1064,130 L1080,130 L1088,140 L1096,66 L1106,158 L1114,130 L1140,130 L1152,116 L1168,130 L1200,130 L1200,130 L1240,130 L1252,122 L1264,130 L1280,130 L1288,140 L1296,66 L1306,158 L1314,130 L1340,130 L1352,116 L1368,130 L1400,130 L1400,130 L1440,130 L1452,122 L1464,130 L1480,130 L1488,140 L1496,66 L1506,158 L1514,130 L1540,130 L1552,116 L1568,130 L1600,130 L1600,130 L1640,130 L1652,122 L1664,130 L1680,130 L1688,140 L1696,66 L1706,158 L1714,130 L1740,130 L1752,116 L1768,130 L1800,130 L1800,130 L1840,130 L1852,122 L1864,130 L1880,130 L1888,140 L1896,66 L1906,158 L1914,130 L1940,130 L1952,116 L1968,130 L2000,130" stroke="#22d3a0" stroke-width="7" fill="none" opacity=".35" filter="url(#glow)" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M0,130 L0,130 L40,130 L52,122 L64,130 L80,130 L88,140 L96,66 L106,158 L114,130 L140,130 L152,116 L168,130 L200,130 L200,130 L240,130 L252,122 L264,130 L280,130 L288,140 L296,66 L306,158 L314,130 L340,130 L352,116 L368,130 L400,130 L400,130 L440,130 L452,122 L464,130 L480,130 L488,140 L496,66 L506,158 L514,130 L540,130 L552,116 L568,130 L600,130 L600,130 L640,130 L652,122 L664,130 L680,130 L688,140 L696,66 L706,158 L714,130 L740,130 L752,116 L768,130 L800,130 L800,130 L840,130 L852,122 L864,130 L880,130 L888,140 L896,66 L906,158 L914,130 L940,130 L952,116 L968,130 L1000,130 L1000,130 L1040,130 L1052,122 L1064,130 L1080,130 L1088,140 L1096,66 L1106,158 L1114,130 L1140,130 L1152,116 L1168,130 L1200,130 L1200,130 L1240,130 L1252,122 L1264,130 L1280,130 L1288,140 L1296,66 L1306,158 L1314,130 L1340,130 L1352,116 L1368,130 L1400,130 L1400,130 L1440,130 L1452,122 L1464,130 L1480,130 L1488,140 L1496,66 L1506,158 L1514,130 L1540,130 L1552,116 L1568,130 L1600,130 L1600,130 L1640,130 L1652,122 L1664,130 L1680,130 L1688,140 L1696,66 L1706,158 L1714,130 L1740,130 L1752,116 L1768,130 L1800,130 L1800,130 L1840,130 L1852,122 L1864,130 L1880,130 L1888,140 L1896,66 L1906,158 L1914,130 L1940,130 L1952,116 L1968,130 L2000,130" stroke="url(#line)" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <g stroke="#22d3a0" stroke-width="7" opacity=".35" filter="url(#glow)"><use href="#wave" xlink:href="#wave"/></g>
+  <g stroke="#22d3a0" stroke-width="3"><use href="#wave" xlink:href="#wave"/></g>
   <animateTransform attributeName="transform" type="translate" from="0 0" to="-600 0" dur="3s" repeatCount="indefinite"/>
  </g>
 </g>
