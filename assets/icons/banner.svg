@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Hamza Arshad">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DBFFF"/><stop offset="1" stop-color="#7C6BFF"/></linearGradient>
+<linearGradient id="n" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#9BE3FF"/><stop offset="1" stop-color="#2DBFFF"/></linearGradient>
+<radialGradient id="rg" cx=".82" cy=".4" r=".55"><stop offset="0" stop-color="#2DBFFF" stop-opacity=".28"/><stop offset="1" stop-color="#2DBFFF" stop-opacity="0"/></radialGradient>
+<linearGradient id="sc" x1="0" x2="1"><stop offset="0" stop-color="#2DBFFF" stop-opacity="0"/><stop offset=".5" stop-color="#2DBFFF" stop-opacity=".35"/><stop offset="1" stop-color="#2DBFFF" stop-opacity="0"/></linearGradient>
+<pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#2DBFFF" stroke-opacity=".07" stroke-width="1"/></pattern>
+<filter id="gl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<clipPath id="cp"><rect width="1200" height="320" rx="18"/></clipPath>
+</defs>
+<style>
+.orb{transform-origin:990px 150px;animation:sp 18s linear infinite}
+.orr{transform-origin:990px 150px;animation:sr 26s linear infinite}
+.ecg{stroke-dasharray:240 1400;stroke-dashoffset:1640;animation:ec 4.5s linear infinite}
+.core{animation:gw 2.4s ease-in-out infinite}
+.cur{animation:bl 1s steps(1) infinite}
+.vr{transform-origin:76px 112px;animation:vs 16s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes sr{to{transform:rotate(-360deg)}}
+@keyframes ec{to{stroke-dashoffset:0}}
+@keyframes gw{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes bl{50%{opacity:0}}
+@keyframes vs{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.ecg{stroke-dasharray:none;stroke-dashoffset:0}}
+text{font-family:'Segoe UI','Montserrat','Helvetica Neue',Arial,sans-serif}
+</style>
+<g clip-path="url(#cp)">
+<rect width="1200" height="320" fill="#0D1117"/>
+<rect width="1200" height="320" fill="url(#gr)"/>
+<rect width="1200" height="320" fill="url(#rg)"/>
+<rect y="0" width="160" height="320" fill="url(#sc)"><animate attributeName="x" from="-160" to="1200" dur="6s" repeatCount="indefinite"/></rect>
+
+<!-- verified badge -->
+<g filter="url(#gl)">
+<path class="vr" fill="url(#g)" transform="translate(52 88) scale(1)" d="M24 0l4.8 3.2 5.8-.4 2.4 5.2 4.8 3.4-.6 5.8L43.8 24l-2.6 5.2.6 5.8-4.8 3.4-2.4 5.2-5.8-.4L24 46.4l-4.8-3.2-5.8.4-2.4-5.2-4.8-3.4.6-5.8L4.2 24l2.6-5.2-.6-5.8 4.8-3.4 2.4-5.2 5.8.4z" style="transform-origin:24px 24px"/>
+</g>
+<path d="M64 112l8 8 14-16" transform="translate(0 0)" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+<text x="124" y="136" font-size="62" font-weight="800" fill="url(#n)">Hamza Arshad</text>
+<text x="124" y="184" font-size="24" fill="#8AA0B0">Assalam-o-Alaikum</text>
+<rect class="cur" x="352" y="164" width="12" height="24" rx="2" fill="#2DBFFF"/>
+
+<!-- orbit -->
+<g class="orb" filter="url(#gl)"><polygon points="990,70 1059,110 1059,190 990,230 921,190 921,110" fill="none" stroke="url(#g)" stroke-width="2.5" stroke-dasharray="14 9"/></g>
+<g class="orr"><circle cx="990" cy="150" r="52" fill="none" stroke="#2DBFFF" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 10"/><circle cx="990" cy="98" r="6" fill="#2DBFFF"/><circle cx="1042" cy="150" r="4" fill="#7C6BFF"/></g>
+<circle class="core" cx="990" cy="150" r="16" fill="url(#g)" filter="url(#gl)"/>
+
+<!-- ECG -->
+<path d="M0 268 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h40" fill="none" stroke="#2DBFFF" stroke-opacity=".15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="ecg" d="M0 268 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h20 l10 -34 l14 64 l10 -30 h126 h40" fill="none" stroke="url(#g)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#gl)"/>
+
+<!-- particles -->
+<g fill="#2DBFFF">
+<circle cx="640" cy="60" r="2"><animate attributeName="opacity" values=".1;.9;.1" dur="3s" repeatCount="indefinite"/></circle>
+<circle cx="760" cy="230" r="2"><animate attributeName="opacity" values=".1;.9;.1" dur="4s" repeatCount="indefinite"/></circle>
+<circle cx="560" cy="210" r="1.6"><animate attributeName="opacity" values=".1;.8;.1" dur="3.6s" repeatCount="indefinite"/></circle>
+<circle cx="1130" cy="60" r="2"><animate attributeName="opacity" values=".1;.9;.1" dur="2.8s" repeatCount="indefinite"/></circle>
+</g>
+</g>
+<rect x=".5" y=".5" width="1199" height="319" rx="18" fill="none" stroke="#2DBFFF" stroke-opacity=".3"/>
+</svg>
