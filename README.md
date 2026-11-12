@@ -1,5 +1,5 @@
 <!-- ===================== HEADER ===================== -->
-<div align="center">
+<div align="center"> 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/banner-dark.svg" />
