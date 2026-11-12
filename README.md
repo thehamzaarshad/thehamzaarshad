@@ -8,7 +8,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-dark.svg" />
-  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-light.svg" alt="Assalam-o-Alaikum!" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-light.svg" alt="Assalam-o-Alaikum!." />
 </picture>
 
 <br/><br/>
