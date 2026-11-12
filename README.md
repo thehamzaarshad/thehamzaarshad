@@ -3,7 +3,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:00CFFF&height=140&section=header&text=HAMZA%20ARSHAD&fontColor=FFFFFF&fontSize=38&fontAlignY=40&animation=fadeIn" alt="Hamza Arshad" width="100%" />
 
-<h1>Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a></h1>
+<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="https://github.com/vinkay215/vinkay215/blob/main/img/verified.gif?raw=true" width="22" alt="verified" /></h1>
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=20&duration=4500&pause=5000&color=00CFFF&center=true&vCenter=true&width=435&lines=Assalam-o-Alaikum!" alt="Assalam-o-Alaikum!" />
