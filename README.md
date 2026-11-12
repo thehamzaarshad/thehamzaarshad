@@ -113,11 +113,11 @@
 
 | Vital | What it means | How it is computed |
 | ----- | ------------- | ------------------ |
-| **HR** (BPM) | Live effort | Rests at 68. Every recent event (push, PR, review, issue) ramps HR up within minutes, and it recovers over ~35 minutes after I stop |
-| **SpO2** (%) | Consistency | Active days in the last 7 days (70%) and last 30 days (30%), dips slightly while working |
-| **NIBP** (mmHg) | Workload pressure | Baseline from 7-day average load, rises with current effort |
-| **RESP** (rpm) | Breathing | Rises with current effort. The breathing sway on the ECG follows it |
-| **HRV** (RMSSD) | Variability | RMSSD of day-to-day contribution changes over 14 days |
+| **HR** (BPM) | Live effort | Rests at ~70. Every recent event (push, PR, review, issue) ramps HR up toward ~130 within minutes, and it recovers over ~35 minutes after I stop |
+| **SpO2** (%) | Oxygen saturation | Healthy 97-99%, dips about 1% at full effort. Consistency (active days) nudges it slightly |
+| **NIBP** (mmHg) | Blood pressure | ~118/76 at rest. Systolic rises up to ~148 while working, diastolic barely moves |
+| **RESP** (rpm) | Breathing | 14 at rest, up to 24 while working. The breathing sway on the ECG follows it |
+| **HRV** (RMSSD ms) | Variability | 35-60 ms at rest depending on consistency, drops while working |
 | **NEWS2** | Overall early-warning score | The NHS NEWS2 banding applied to HR, SpO2, systolic BP and RR |
 
 **Rhythms:** normal sinus rhythm at rest, tachycardia while working hard, then back to normal. After 2+ days of no activity: bradycardia → irregular rhythm (PVCs) → **asystole** after 7 days with no activity.
