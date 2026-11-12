@@ -6,10 +6,16 @@
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/banner-light.svg" alt="Hamza Arshad" width="100%" />
 </picture>
 
-<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <picture>
+<h1 align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-hi-im-hamza-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-hi-im-hamza-light.svg" alt="Hi, I'm Hamza" height="48" />
+</picture>
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/verified-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/verified-light.svg" alt="verified" width="22" />
-</picture></h1>
+</picture>
+</h1>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-dark.svg" />
