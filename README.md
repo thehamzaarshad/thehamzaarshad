@@ -92,11 +92,11 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 
 <div align="center">
 
-## 💓 Coding Heartbeat
+## 📡 Contribution Pulse
 
-<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="ECG" width="100%"/>
+<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse" width="100%"/>
 
-Roz commit = zinda dil. Commit nahi = flatline. ☠️
+<sub>Daily GitHub activity over the last 30 days, updated automatically. Days without contributions appear as a flat line.</sub>
 
 </div>
 
