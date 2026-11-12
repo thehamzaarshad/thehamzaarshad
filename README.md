@@ -34,6 +34,12 @@ I build clean, type-safe, production-ready applications - and I'm currently open
 
 I'm rebuilding my engineering path through focused, production-minded work: open-source contributions, real deployed projects, and clean documented code — the kind of evidence that speaks louder than a resume.
 
+# 💓 Coding Heartbeat
+
+![ECG](assets/ecg.svg)
+
+Roz commit = zinda dil. Commit nahi = flatline. ☠️
+
 - 🔭 Currently building full-stack apps with **type safety, reliability, and clear architecture** in mind
 - 💬 Ask me about: TypeScript, React, Next.js, Node.js, Go, PostgreSQL, Docker, or API design
 - 💼 Focused on **testable code** (unit + integration), **Dockerized deployments**, and **CI/CD**
