@@ -1,54 +1,110 @@
+<!-- ===================== HEADER ===================== -->
 <div align="center">
 
-# Hamza Arshad
-
-**Full-Stack Engineer** · React · Next.js · Node.js · Go · TypeScript
+<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="https://github.com/vinkay215/vinkay215/blob/main/img/verified.gif?raw=true" width="22" alt="verified" /></h1>
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=600&size=18&duration=3000&pause=1500&color=2DBFFF&center=true&vCenter=true&width=520&lines=Clean%2C+type-safe%2C+production-ready+code;Open+to+remote+roles+%E2%80%94+US%2C+Canada+%26+EU" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&duration=4500&pause=5000&color=2DBFFF&width=435&lines=Assalam-o-Alaikum!" alt="Typing SVG" />
 </a>
 
 </div>
 
 ---
 
-### About
+<!-- ===================== CONTRIBUTION PULSE ===================== -->
+<div align="center">
 
-I build full-stack apps with type safety, tests and clear architecture: Dockerized, CI/CD-ready, and documented.
+## 📡 Contribution Pulse
 
-### Stack
+<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" width="100%" />
 
-<img src="https://skillicons.dev/icons?i=ts,react,nextjs,nodejs,go,postgres,mongodb,prisma,docker,github,tailwind&perline=11" alt="Tech stack" />
+<sub>An ICU bedside monitor driven by my real GitHub activity. Refreshes every 3 hours via GitHub Actions.</sub>
 
-### Projects
-
-| Project | Stack |
-| --- | --- |
-| **E-Commerce Platform**: auth, payments, admin, CI/CD | Next.js · TypeScript · Prisma · PostgreSQL · Docker |
-| **Admin Dashboard**: documented, accessible, tested UI | React · TypeScript · Tailwind · Vitest · Storybook |
-| **Auth API**: JWT, RBAC, automated tests | Go · PostgreSQL · Docker · GitHub Actions |
-
-[All repositories →](https://github.com/thehamzaarshad?tab=repositories)
-
-### Activity
-
-<img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse: ICU-style monitor driven by my real GitHub activity" width="100%" />
-
-<sub>ICU-style monitor driven by my real GitHub data, refreshed every 3 hours via GitHub Actions.</sub>
+</div>
 
 <details>
-<summary>How to read the vitals</summary>
+<summary><b>🩺 How to read my vitals</b></summary>
 
 <br/>
 
-**HR** coding intensity · **SpO2** consistency · **NIBP** workload · **RESP** pace · **HRV** variability · **NEWS2** overall score (NHS banding). Quiet days move the rhythm from sinus → bradycardia → PVCs → asystole after 7 days of no activity.
+Every number on the monitor is computed from my actual GitHub data (GraphQL contribution calendar + public events).
+
+| Vital | What it means | How it is computed |
+| ----- | ------------- | ------------------ |
+| **HR** (BPM) | Current coding intensity | Weighted activity score (pushes, PRs, reviews, issues) with a 30-hour exponential decay |
+| **SpO2** (%) | Consistency | Active days in the last 7 days (70%) and last 30 days (30%) |
+| **NIBP** (mmHg) | Workload pressure | Systolic = 7-day average daily load, diastolic = 30-day baseline |
+| **RESP** (rpm) | Pace | Active days in the last 30 days |
+| **HRV** (RMSSD) | Variability | RMSSD of day-to-day contribution changes over 14 days |
+| **NEWS2** | Overall early-warning score | The NHS NEWS2 banding applied to HR, SpO2, systolic BP and RR |
+
+**Rhythms:** normal sinus rhythm while I'm active → bradycardia → irregular rhythm (PVCs) as days go quiet → **asystole** after 7 days with no activity.
+
+**Alarms:** NEWS2 5-6 = *urgent review*, NEWS2 7+ = *escalate*. The bottom strip shows my last 30 days of contributions.
 
 </details>
 
----
-
 <div align="center">
 
-[GitHub](https://github.com/thehamzaarshad) · <!-- [LinkedIn](https://linkedin.com/in/YOUR-USERNAME) · [Portfolio](https://YOUR-PORTFOLIO.com) -->
+<a href="https://github.com/thehamzaarshad">
+  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
+</a>
+<a href="https://github.com/thehamzaarshad?tab=followers">
+  <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github" alt="GitHub Followers" />
+</a>
+
+</div>
+
+---
+
+<!-- ===================== GITHUB ENGINEERING STATS ===================== -->
+<div align="center">
+
+## 📊 GitHub Engineering Stats
+
+<a href="https://streak-stats.demolab.com/">
+  <img
+    src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=8B949E&background=161B22&ring=00CFFF&fire=00CFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00CFFF&sideLabels=C9D1D9&dates=8B949E&mode=daily&locale=en&disable_animations=true"
+    alt="GitHub Streak"
+    width="49%"
+  />
+</a>
+<img
+  src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_color=8B949E&title_color=FFFFFF&text_color=C9D1D9&bg_color=161B22&custom_title=Technology%20Footprint"
+  alt="Technology Footprint"
+  width="49%"
+/>
+
+</div>
+
+---
+
+<!-- ===================== CONTRIBUTION ANALYTICS ===================== -->
+<div align="center">
+
+## 📈 Contribution Analytics
+
+<a href="https://github.com/ashutosh00710/github-readme-activity-graph">
+  <img
+    src="https://fabianocouto-activity-graph.vercel.app/graph/?username=thehamzaarshad&theme=react-dark&hide_border=true&bg_color=0D1117&color=C9D1D9&line=00CFFF&point=FFFFFF&area=true"
+    alt="Hamza Arshad GitHub Contribution Analytics"
+    width="98%"
+  />
+</a>
+
+</div>
+
+---
+
+<!-- ===================== CONTRIBUTION ACTIVITY ===================== -->
+<div align="center">
+
+## 🐍 Contribution Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/output/github-contribution-grid-snake.svg" />
+</picture>
 
 </div>
