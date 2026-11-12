@@ -2,18 +2,19 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=1A160C&height=190&text=HAMZA%20ARSHAD&fontColor=DCA54C&fontSize=44&fontAlignY=50&stroke=4A4024&strokeWidth=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=190&text=HAMZA%20ARSHAD&fontColor=B1901F&fontSize=44&fontAlignY=50&stroke=E8DFC0&strokeWidth=2" alt="Hamza Arshad" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/banner-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/banner-light.svg" alt="Hamza Arshad" width="100%" />
 </picture>
 
-<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="https://github.com/vinkay215/vinkay215/blob/main/img/verified.gif?raw=true" width="22" alt="verified" /></h1>
+<h1>🔥 Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/verified-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/verified-light.svg" alt="verified" width="22" />
+</picture></h1>
 
-<a href="https://git.io/typing-svg">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=20&duration=4500&pause=5000&color=DCA54C&center=true&vCenter=true&width=435&lines=Assalam-o-Alaikum!" />
-  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=20&duration=4500&pause=5000&color=B1901F&center=true&vCenter=true&width=435&lines=Assalam-o-Alaikum!" alt="Assalam-o-Alaikum!" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/typing-light.svg" alt="Assalam-o-Alaikum!" />
 </picture>
-</a>
 
 <br/><br/>
 
@@ -33,8 +34,8 @@
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:1A160C,50:DCA54C,100:1A160C&height=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:F3EEDD,50:B1901F,100:F3EEDD&height=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
 </picture>
 
 <!-- ===================== ABOUT ===================== -->
@@ -42,8 +43,8 @@
 
 <h2 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=28220F&height=64&text=About%20Me&fontColor=DCA54C&fontSize=24&fontAlign=50&fontAlignY=52" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=64&text=About%20Me&fontColor=B1901F&fontSize=24&fontAlign=50&fontAlignY=52" alt="About Me" height="48" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-about-me-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-about-me-light.svg" alt="About Me" height="48" />
 </picture>
 </h2>
 
@@ -59,43 +60,39 @@
 
 <!-- EDIT: keep only what you actually use -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Python-28220F?style=for-the-badge&logo=python&logoColor=DCA54C" />
-  <img src="https://img.shields.io/badge/Python-F3EEDD?style=for-the-badge&logo=python&logoColor=B1901F" alt="Python" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-python-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-python-light.svg" alt="Python" />
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/JavaScript-28220F?style=for-the-badge&logo=javascript&logoColor=DCA54C" />
-  <img src="https://img.shields.io/badge/JavaScript-F3EEDD?style=for-the-badge&logo=javascript&logoColor=B1901F" alt="JavaScript" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-javascript-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-javascript-light.svg" alt="JavaScript" />
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Git-28220F?style=for-the-badge&logo=git&logoColor=DCA54C" />
-  <img src="https://img.shields.io/badge/Git-F3EEDD?style=for-the-badge&logo=git&logoColor=B1901F" alt="Git" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-git-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/skill-git-light.svg" alt="Git" />
 </picture>
 
-<!-- EDIT: add your real links -->
-<a href="https://github.com/thehamzaarshad">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/GitHub-thehamzaarshad-DCA54C?style=for-the-badge&logo=github&logoColor=1A160C" />
-  <img src="https://img.shields.io/badge/GitHub-thehamzaarshad-B1901F?style=for-the-badge&logo=github&logoColor=FFFFFF" alt="GitHub" />
-</picture>
-</a>
-<a href="https://linkedin.com/in/your-profile">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/LinkedIn-your--profile-DCA54C?style=for-the-badge&logo=linkedin&logoColor=1A160C" />
-  <img src="https://img.shields.io/badge/LinkedIn-your--profile-B1901F?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" alt="LinkedIn" />
-</picture>
-</a>
-<a href="mailto:your@email.com">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Email-your@email.com-DCA54C?style=for-the-badge&logo=gmail&logoColor=1A160C" />
-  <img src="https://img.shields.io/badge/Email-your@email.com-B1901F?style=for-the-badge&logo=gmail&logoColor=FFFFFF" alt="Email" />
-</picture>
-</a>
+<br/>
+
+<!-- EDIT: add your real links (also edit the label inside assets/social-*.svg) -->
+<a href="https://github.com/thehamzaarshad"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-light.svg" alt="GitHub" />
+</picture></a>
+<a href="https://linkedin.com/in/your-profile"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-light.svg" alt="LinkedIn" />
+</picture></a>
+<a href="mailto:your@email.com"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-light.svg" alt="Email" />
+</picture></a>
 
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:1A160C,50:DCA54C,100:1A160C&height=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:F3EEDD,50:B1901F,100:F3EEDD&height=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
 </picture>
 
 <!-- ===================== CONTRIBUTION PULSE ===================== -->
@@ -103,8 +100,8 @@
 
 <h2 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=28220F&height=64&text=Contribution%20Pulse&fontColor=DCA54C&fontSize=24&fontAlign=50&fontAlignY=52" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=64&text=Contribution%20Pulse&fontColor=B1901F&fontSize=24&fontAlign=50&fontAlignY=52" alt="Contribution Pulse" height="48" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-pulse-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-pulse-light.svg" alt="Contribution Pulse" height="48" />
 </picture>
 </h2>
 
@@ -135,8 +132,8 @@
 </details>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:1A160C,50:DCA54C,100:1A160C&height=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:F3EEDD,50:B1901F,100:F3EEDD&height=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
 </picture>
 
 <!-- ===================== GITHUB ENGINEERING STATS ===================== -->
@@ -144,8 +141,8 @@
 
 <h2 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=28220F&height=64&text=GitHub%20Engineering%20Stats&fontColor=DCA54C&fontSize=24&fontAlign=50&fontAlignY=52" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=64&text=GitHub%20Engineering%20Stats&fontColor=B1901F&fontSize=24&fontAlign=50&fontAlignY=52" alt="GitHub Engineering Stats" height="48" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-github-engineering-stats-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-github-engineering-stats-light.svg" alt="GitHub Engineering Stats" height="48" />
 </picture>
 </h2>
 
@@ -163,8 +160,8 @@
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:1A160C,50:DCA54C,100:1A160C&height=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:F3EEDD,50:B1901F,100:F3EEDD&height=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
 </picture>
 
 <!-- ===================== CONTRIBUTION ANALYTICS ===================== -->
@@ -172,8 +169,8 @@
 
 <h2 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=28220F&height=64&text=Contribution%20Analytics&fontColor=DCA54C&fontSize=24&fontAlign=50&fontAlignY=52" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=64&text=Contribution%20Analytics&fontColor=B1901F&fontSize=24&fontAlign=50&fontAlignY=52" alt="Contribution Analytics" height="48" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-analytics-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-analytics-light.svg" alt="Contribution Analytics" height="48" />
 </picture>
 </h2>
 
@@ -187,8 +184,8 @@
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:1A160C,50:DCA54C,100:1A160C&height=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:F3EEDD,50:B1901F,100:F3EEDD&height=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/divider-light.svg" alt="" width="100%" />
 </picture>
 
 <!-- ===================== CONTRIBUTION ACTIVITY ===================== -->
@@ -196,8 +193,8 @@
 
 <h2 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=28220F&height=64&text=Contribution%20Activity&fontColor=DCA54C&fontSize=24&fontAlign=50&fontAlignY=52" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=64&text=Contribution%20Activity&fontColor=B1901F&fontSize=24&fontAlign=50&fontAlignY=52" alt="Contribution Activity" height="48" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-activity-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/heading-contribution-activity-light.svg" alt="Contribution Activity" height="48" />
 </picture>
 </h2>
 
@@ -208,8 +205,8 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=1A160C&height=70&stroke=4A4024&strokeWidth=2" />
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=F9F6EE&height=70&stroke=E8DFC0&strokeWidth=2" alt="" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/footer-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/footer-light.svg" alt="" width="100%" />
 </picture>
 
 </div>
