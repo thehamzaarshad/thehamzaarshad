@@ -6,7 +6,7 @@ on:
       - scripts/ecg.py
       - .github/workflows/ecg.yml
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
