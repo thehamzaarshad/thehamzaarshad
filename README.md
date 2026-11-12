@@ -20,8 +20,8 @@
 
 <a href="https://github.com/thehamzaarshad">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=DCA54C&labelColor=20161F&style=for-the-badge" />
-  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&color=B1901F&labelColor=000000&style=for-the-badge" alt="Profile views" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://hits.sh/github.com/thehamzaarshad.svg?style=for-the-badge&label=PROFILE%20VIEWS&color=DCA54C&labelColor=20161F" />
+  <img src="https://hits.sh/github.com/thehamzaarshad.svg?style=for-the-badge&label=PROFILE%20VIEWS&color=B1901F&labelColor=000000" alt="Profile views" />
 </picture>
 </a>
 <a href="https://github.com/thehamzaarshad?tab=followers">
