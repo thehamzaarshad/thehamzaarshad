@@ -706,7 +706,7 @@ def main():
     cal = fetch_calendar(user, token)
     st = activity_stats(events, cal, now)
     # seed changes every 5 minutes so the waveform and small vital jitter look fresh on each update
-    seed = int(now.strftime("%Y%m%d%H")) * 12 + now.minute // 5
+    seed = int(now.strftime("%Y%m%d%H")) * 60 + now.minute
     S = state_from_activity(st, random.Random(seed + 1))
     write_themes(S, user, now, seed, a.still, a.out)
     print(f"load={st['load']:.2f} effort={S['effort']:.2f} state={S['rhythm']} bpm={S['bpm']} spo2={S['spo2']} "
