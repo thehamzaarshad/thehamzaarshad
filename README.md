@@ -1,11 +1,13 @@
 <!-- ===================== HEADER ===================== -->
 <div align="center">
 
+<h1><img src="assets/icons/bolt.svg" width="34" height="34" align="absmiddle" alt="" /> Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="assets/icons/verified.svg" width="24" height="24" align="absmiddle" alt="" /></h1>
+
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=30&duration=4500&pause=5000&color=2DBFFF&center=true&vCenter=true&width=520&height=55&lines=Assalam-o-Alaikum!" alt="Assalam-o-Alaikum!" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=22&duration=4500&pause=5000&color=2DBFFF&center=true&vCenter=true&width=435&lines=Assalam-o-Alaikum!" alt="Typing SVG" />
 </a>
 
-<h1><img src="assets/icons/bolt.svg" width="34" height="34" align="absmiddle" alt="" /> Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="assets/icons/verified.svg" width="24" height="24" align="absmiddle" alt="" /></h1>
+<br/><br/>
 
 <a href="https://github.com/thehamzaarshad?tab=followers">
   <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=flat-square&logo=github&logoColor=white&labelColor=555&color=2DBFFF" alt="GitHub Followers" />
