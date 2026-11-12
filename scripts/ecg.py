@@ -17,6 +17,9 @@ Human-like live model:
   Header shows LAST ACTIVITY (date/time of last GitHub activity); in asystole
   the same time is shown as TIME OF DEATH.
 
+  Inactivity: after SLOW_H idle hours the heart slows and turns irregular,
+  after DEAD_H idle hours it flatlines (asystole).
+
 Testing (no network / token needed):
     python3 scripts/ecg.py --demo all --out-dir demo       # open demo/index.html
     python3 scripts/ecg.py --demo working --out /tmp/o.svg   # -> /tmp/o-dark.svg, /tmp/o-light.svg
@@ -47,6 +50,8 @@ REST, PEAK = 70, 130        # resting / maximum working BPM
 TAU_REC = 15.0              # minutes: recovery time constant after activity
 TAU_RISE = 3.0              # minutes: ramp-up after an event
 K_LOAD = 4.0                # load needed for ~63% of max effort
+DEAD_H = 72.0               # hours of inactivity before asystole
+SLOW_H = 24.0               # after this many idle hours the heart starts slowing
 
 TAU = 2 * math.pi
 clamp = lambda v, a, b: max(a, min(b, v))
@@ -253,7 +258,7 @@ def state_from_activity(st, rng):
     side = dict(n24=st["n24"], streak=st["streak"], repos7=st["repos7"])
     trend = st["series"][-30:]
     hours = st["hours"]
-    if hours >= 168:
+    if hours >= DEAD_H:
         return make_state("live", bpm=None, rate=0, ir=1.0, spo2=None, mode="asystole", side=side, trend=trend,
                           last=st["last"], last_exact=st["last_exact"])
 
@@ -262,10 +267,10 @@ def state_from_activity(st, rng):
 
     # HEART RATE: 70 at rest -> 130 at full effort
     bpm = REST + (PEAK - REST) * effort
-    if hours > 48:                                   # long inactivity: bradycardia -> irregular
-        bpm *= 1 - 0.75 * (hours - 48) / 120
+    if hours > SLOW_H:                               # long inactivity: bradycardia -> irregular
+        bpm *= 1 - 0.75 * (hours - SLOW_H) / (DEAD_H - SLOW_H)
     bpm = int(round(clamp(bpm, 10, 150)))
-    ir = clamp((hours - 48) / 120, 0, 1)
+    ir = clamp((hours - SLOW_H) / (DEAD_H - SLOW_H), 0, 1)
 
     # consistency (active days) only nudges SpO2 and HRV baseline a little
     cons = 0.7 * st["active7"] / 7 + 0.3 * st["active30"] / 30
