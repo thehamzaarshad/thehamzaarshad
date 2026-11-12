@@ -1,19 +1,21 @@
-<!-- ===================== HEADER ===================== -->
+<!-- ===================== HERO ===================== -->
 <div align="center">
 
-<h1><img src="assets/icons/bolt.svg" width="34" height="34" align="absmiddle" alt="" /> Hi, I'm <a href="https://github.com/thehamzaarshad">Hamza</a> <img src="assets/icons/verified-animated.svg" width="24" height="24" align="absmiddle" alt="verified" /></h1>
+<h1 align="center">
+  <img src="assets/banner.svg" width="100%" alt="Hamza Arshad" />
+</h1>
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=22&duration=4500&pause=5000&color=2DBFFF&center=true&vCenter=true&width=435&lines=Assalam-o-Alaikum!" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=22&duration=4500&pause=1500&color=2DBFFF&center=true&vCenter=true&width=520&lines=Assalam-o-Alaikum!;Welcome+to+my+GitHub+profile" alt="Typing SVG" />
 </a>
 
 <br/><br/>
 
 <a href="https://github.com/thehamzaarshad?tab=followers">
-  <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=flat-square&logo=github&logoColor=white&labelColor=555&color=2DBFFF" alt="GitHub Followers" />
+  <img src="https://img.shields.io/github/followers/thehamzaarshad?label=FOLLOWERS&style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117&color=2DBFFF" alt="GitHub Followers" />
 </a>
 <a href="https://github.com/thehamzaarshad">
-  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&style=flat-square&color=2DBFFF" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=thehamzaarshad&label=PROFILE%20VIEWS&style=for-the-badge&labelColor=0D1117&color=2DBFFF" alt="Profile Views" />
 </a>
 
 </div>
@@ -64,13 +66,13 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 
 <a href="https://streak-stats.demolab.com/">
   <img
-    src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=30363D&border_radius=10&background=0D1117&ring=2DBFFF&fire=2DBFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=2DBFFF&sideLabels=8B949E&dates=8B949E&mode=daily&locale=en&disable_animations=true"
+    src="https://streak-stats.demolab.com/?user=thehamzaarshad&theme=dark&hide_border=false&border=1D2C3A&border_radius=14&background=0D1117&ring=2DBFFF&fire=2DBFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=2DBFFF&sideLabels=8B949E&dates=8B949E&mode=daily&locale=en&disable_animations=false"
     alt="GitHub Streak"
     width="49%"
   />
 </a>
 <img
-  src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_radius=10&border_color=30363D&title_color=2DBFFF&text_color=C9D1D9&bg_color=0D1117&custom_title=Technology%20Footprint"
+  src="https://github-stats-extended.vercel.app/api/top-langs/?username=thehamzaarshad&layout=compact&card_width=420&theme=dark&hide_border=false&border_radius=14&border_color=1D2C3A&title_color=2DBFFF&text_color=C9D1D9&bg_color=0D1117&custom_title=Technology%20Footprint"
   alt="Technology Footprint"
   width="49%"
 />
@@ -108,3 +110,6 @@ Every number on the monitor is computed from my actual GitHub data (GraphQL cont
 </picture>
 
 </div>
+
+<!-- ===================== FOOTER ===================== -->
+<img src="assets/footer.svg" width="100%" alt="Thanks for visiting" />
