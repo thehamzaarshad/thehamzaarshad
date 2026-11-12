@@ -96,8 +96,6 @@ A performant REST API featuring JWT auth, role-based access control, and automat
 
 <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/ecg.svg" alt="Contribution Pulse" width="100%"/>
 
-<sub>Daily GitHub activity over the last 30 days, updated automatically. Days without contributions appear as a flat line.</sub>
-
 </div>
 
 <div align="center">
