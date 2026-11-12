@@ -1,4 +1,4 @@
-name: Update Top Starred Repos
+name: Update Top Starred Repos - Gold Cards
 
 on:
   schedule:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update README with Top Repos
+      - name: Update README with Gold Cards
         uses: actions/github-script@v7
         with:
           script: |
@@ -32,14 +32,33 @@ jobs:
               .sort((a,b) => b.stargazers_count - a.stargazers_count)
               .slice(0, 4);
 
-            let table = `| Project | ⭐ Stars | 🍴 Forks | Links |\n|---|---|---|---|\n`;
-            for (const r of sorted) {
-              table += `| **[${r.name}](${r.html_url})**<br><sub>${r.description || ''}</sub> | ![Stars](https://img.shields.io/github/stars/${username}/${r.name}?style=flat-square&color=DCA54C&labelColor=20161F) | ![Forks](https://img.shields.io/github/forks/${username}/${r.name}?style=flat-square&color=20161F&labelColor=DCA54C) | [⭐ Star](${r.html_url}) \\| [🍴 Fork](${r.html_url}/fork) |\n`;
-            }
+            let cards = `<div align="center">\n\n### 🔥 Top Starred Repos (Auto Updated)\n\n<table>\n<tr>\n`;
+            
+            sorted.forEach((r, i) => {
+              const desc = (r.description || 'No description').replace(/\|/g, '');
+              const lang = r.language || 'Code';
+              cards += `
+<td width="50%" valign="top">
+
+### [${r.name}](${r.html_url})
+**${desc}**
+<br/>
+<sub>💻 ${lang}</sub>
+<br/><br/>
+<img src="https://img.shields.io/github/stars/${username}/${r.name}?style=flat-square&color=DCA54C&label=Stars&labelColor=20161F" />
+<img src="https://img.shields.io/github/forks/${username}/${r.name}?style=flat-square&color=20161F&label=Forks&labelColor=DCA54C" />
+<br/><br/>
+[⭐ Star](${r.html_url}) &nbsp;|&nbsp; [🍴 Fork](${r.html_url}/fork) &nbsp;|&nbsp; [💻 Code](${r.html_url})
+
+</td>
+`;
+              if (i % 2 === 1 && i !== sorted.length - 1) cards += `</tr>\n<tr>\n`;
+            });
+            cards += `</tr>\n</table>\n\n</div>`;
 
             let readme = fs.readFileSync('README.md', 'utf8');
             const start = '<!-- TOP-REPOS:START -->';
             const end = '<!-- TOP-REPOS:END -->';
             const regex = new RegExp(`${start}[\\s\\S]*?${end}`, 'm');
-            readme = readme.replace(regex, `${start}\n\n### 🔥 Top Starred Repos (Auto Updated)\n\n${table}\n${end}`);
+            readme = readme.replace(regex, `${start}\n\n${cards}\n${end}`);
             fs.writeFileSync('README.md', readme);
