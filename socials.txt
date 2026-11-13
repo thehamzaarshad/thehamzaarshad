@@ -1,0 +1,6 @@
+# platform: username
+github: thehamzaarshad
+linkedin: your-profile
+email: hamzaofficial4726@gmail.com
+whatsapp: +92 340 0129843
+website: yourwebsite.com
