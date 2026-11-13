@@ -45,10 +45,10 @@
 
 </div>
 
-- 💼 I work as **[your role]** at **[company / university / freelance]**
-- 🔭 Currently working on **[project or focus]**
-- 🌱 Currently learning **[technology]**
-- 📍 Based in **[city, country]**
+- 💼 I work as **Student** & **Self Taught Developer**
+- 🔭 Currently working on **Open Source Projects**
+- 🌱 Currently learning **TypeScript, Next.js & Svelte**
+- 📍 Based in **Kharian, Gujrat, Pakistan**
 
 <div align="center">
 
