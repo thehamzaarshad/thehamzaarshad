@@ -1,0 +1,30 @@
+name: Socials
+on:
+  push:
+    branches: [main]
+    paths:
+      - socials.txt
+      - scripts/gen_socials.py
+      - .github/workflows/socials.yml
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: socials
+  cancel-in-progress: false
+jobs:
+  socials:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/gen_socials.py
+      - run: |
+          git config user.name "socials-bot"
+          git config user.email "socials-bot@users.noreply.github.com"
+          git add -A assets README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "update socials"
+          git pull --rebase -q
+          git push
