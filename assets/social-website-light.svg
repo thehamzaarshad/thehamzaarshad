@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 40" width="196" height="40" role="img" aria-label="yourwebsite.com">
-<rect width="196" height="40" rx="20" fill="#DCA54C"/>
-<g transform="translate(18 10)" fill="none" stroke="#1A160C" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="9"/><ellipse cx="10" cy="10" rx="4" ry="9"/><path d="M1 10h18"/></g>
-<text x="50" y="25.5" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing=".4" fill="#1A160C">yourwebsite.com</text>
+<rect width="196" height="40" rx="20" fill="#B1901F"/>
+<g transform="translate(18 10)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="9"/><ellipse cx="10" cy="10" rx="4" ry="9"/><path d="M1 10h18"/></g>
+<text x="50" y="25.5" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing=".4" fill="#FFFFFF">yourwebsite.com</text>
 </svg>
