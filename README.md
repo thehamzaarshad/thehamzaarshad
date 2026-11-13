@@ -75,7 +75,7 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-light.svg" alt="LinkedIn" />
 </picture></a>
-<a href="mailto:your@email.com"><picture>
+<a href="hamzaofficial4726@gmail.com"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-light.svg" alt="Email" />
 </picture></a>
