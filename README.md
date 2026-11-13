@@ -67,22 +67,8 @@
 
 <br/>
 
-<a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-dark.svg" />
-  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-github-light.svg" alt="GitHub" />
-</picture></a>
-<a href="https://linkedin.com/in/your-profile"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-dark.svg" />
-  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-linkedin-light.svg" alt="LinkedIn" />
-</picture></a>
-<a href="mailto:hamzaofficial4726@gmail.com"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-dark.svg" />
-  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-light.svg" alt="Email" />
-</picture></a>
-<a href="https://wa.me/+923400129843"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-dark.svg" />
-  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-light.svg" alt="WhatsApp" />
-</picture></a>
+<!-- SOCIALS-BUTTONS:START -->
+<!-- SOCIALS-BUTTONS:END -->
 
 </div>
 
