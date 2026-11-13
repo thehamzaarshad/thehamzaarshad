@@ -79,6 +79,10 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-email-light.svg" alt="Email" />
 </picture></a>
+<a href="https://wa.me/+923400129843"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-dark.svg" />
+  <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-light.svg" alt="WhatsApp" />
+</picture></a>
 
 </div>
 
