@@ -1,49 +1,26 @@
-import os
-import sys
-from xml.sax.saxutils import escape
+# Source: quranwbw app.html (theme-1, theme-5, theme-9), tailwind.config.js, commonClasses.js
+THEMES = {
+    "light": {"bg": (255, 255, 255), "accent": (177, 144, 31), "text": (0, 0, 0)},
+    "dark": {"bg": (32, 22, 31), "accent": (220, 165, 76), "text": (220, 165, 76)},
+    "dark_luxury": {"bg": (9, 9, 11), "accent": (220, 165, 76), "text": (220, 165, 76)},
+}
+FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from theme import THEMES, COMPONENTS, FONT, hexc
+COMPONENTS = {
+    "button":  {"fill": 5, "stroke": 0,  "radius": 24,   "px": 16, "py": 8,  "font": 16, "line": 24, "weight": 400},
+    "outline": {"fill": 0, "stroke": 20, "radius": 24,   "px": 16, "py": 8,  "font": 16, "line": 24, "weight": 400},
+    "label":   {"fill": 5, "stroke": 0,  "radius": 9999, "px": 10, "py": 2,  "font": 14, "line": 20, "weight": 400},
+    "tab":     {"fill": 0, "stroke": 0,  "radius": 24,   "px": 16, "py": 8,  "font": 12, "line": 16, "weight": 400},
+    "card":    {"fill": 0, "stroke": 20, "radius": 8,    "px": 20, "py": 20, "font": 16, "line": 24, "weight": 400, "border": 2},
+}
 
-SKILLS = {"python": "Python", "javascript": "JavaScript", "git": "Git"}
-SOCIALS = {"github": "thehamzaarshad", "linkedin": "LinkedIn", "email": "Email"}
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
+
+def hexc(c):
+    return "#%02X%02X%02X" % c
 
 
-def pill(label, comp, mode):
-    c = COMPONENTS[comp]
+def tw(mode, token, n=100):
+    """Tailwind 'bg-theme-<token>/<n>' blended over the theme bg, returns hex."""
     t = THEMES[mode]
-    h = c["line"] + 2 * c["py"]
-    w = round(len(label) * c["font"] * 0.58 + 2 * c["px"])
-    r = min(c["radius"], h / 2)
-    acc = hexc(t["accent"])
-    txt = hexc(t["text"])
-    font = FONT.replace('"', "'")
-    stroke = (
-        f'stroke="{acc}" stroke-opacity="{c["stroke"] / 100}" stroke-width="1"'
-        if c["stroke"]
-        else 'stroke="none"'
-    )
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">'
-        f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{r}" '
-        f'fill="{acc}" fill-opacity="{c["fill"] / 100}" {stroke}/>'
-        f'<text x="{w / 2}" y="{h / 2}" text-anchor="middle" dominant-baseline="central" '
-        f'font-family="{font}" font-size="{c["font"]}" font-weight="{c["weight"]}" '
-        f'fill="{txt}">{escape(label)}</text></svg>'
-    )
-
-
-def main():
-    os.makedirs(OUT, exist_ok=True)
-    for mode in ("light", "dark"):
-        for key, label in SKILLS.items():
-            with open(os.path.join(OUT, f"skill-{key}-{mode}.svg"), "w", encoding="utf-8") as f:
-                f.write(pill(label, "label", mode))
-        for key, label in SOCIALS.items():
-            with open(os.path.join(OUT, f"social-{key}-{mode}.svg"), "w", encoding="utf-8") as f:
-                f.write(pill(label, "button", mode))
-    print("done")
-
-
-main()
+    a = n / 100
+    return hexc(tuple(round(f * a + b * (1 - a)) for f, b in zip(t[token], t["bg"])))
