@@ -84,7 +84,7 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-whatsapp-light.svg" alt="Whatsapp" />
 </picture></a>
-<a href="https://yourwebsite.com"><picture>
+<a href="https://thehamzaarshad.io"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-website-dark.svg" />
   <img src="https://raw.githubusercontent.com/thehamzaarshad/thehamzaarshad/main/assets/social-website-light.svg" alt="Website" />
 </picture></a>
