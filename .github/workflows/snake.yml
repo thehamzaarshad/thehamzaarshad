@@ -1,0 +1,54 @@
+name: Snake
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/snake.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: pub-assets
+  cancel-in-progress: false
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: pub
+      - uses: actions/checkout@v4
+        with:
+          repository: thehamzaarshad/hamza-site
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          path: site
+          sparse-checkout: readme
+
+      - name: Snake colors from theme.json
+        id: c
+        run: |
+          {
+            echo 'outputs<<EOF'
+            jq -r '"dist/snake-light.svg?color_snake=\(.snake.light.snake)&color_dots=\(.snake.light.dots|join(","))"' site/readme/theme.json
+            jq -r '"dist/snake-dark.svg?color_snake=\(.snake.dark.snake)&color_dots=\(.snake.dark.dots|join(","))"' site/readme/theme.json
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: ${{ steps.c.outputs.outputs }}
+
+      - name: Commit snake
+        run: |
+          cp dist/snake-light.svg dist/snake-dark.svg pub/assets/
+          cd pub
+          git config user.name "sync-bot"
+          git config user.email "sync-bot@users.noreply.github.com"
+          git add -A assets
+          git diff --cached --quiet && exit 0
+          git commit -q -m "sync: snake"
+          git pull --rebase -q
+          git push -q
