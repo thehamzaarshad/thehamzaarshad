@@ -40,8 +40,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/about-dark.svg?v=e83c62ff" />
-  <img src="https://thehamzaarshad.github.io/assets/about-light.svg?v=e83c62ff" alt="About Me" width="400" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/about-dark.svg?v=fd6e92d8" />
+  <img src="https://thehamzaarshad.github.io/assets/about-light.svg?v=fd6e92d8" alt="About Me" width="400" />
 </picture>
 
 </div>

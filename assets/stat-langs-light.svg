@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 222" width="420" height="222" role="img" aria-label="Most used languages">
 <rect x="1" y="1" width="418" height="220" rx="20" fill="#F9F6EE" stroke="#E8DFC0" stroke-width="2"/>
 <rect x="22" y="22" width="4" height="16" rx="2" fill="#B1901F"/>
-<text x="34" y="35" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#B1901F" text-anchor="start" letter-spacing="1.6">TECHNOLOGY FOOTPRINT</text>
+<text x="34" y="35" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8A6D12" text-anchor="start" letter-spacing="1.6">TECHNOLOGY FOOTPRINT</text>
 <text x="398" y="35" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#7A6A3A" text-anchor="end">17 languages</text>
 <clipPath id="lb"><rect x="22" y="56" width="376" height="14" rx="7"/></clipPath>
 <rect x="22" y="56" width="376" height="14" rx="7" fill="#E8DFC0"/>
 <g clip-path="url(#lb)">
-<rect x="22.0" y="56" width="233.4" height="14" fill="#B1901F" fill-opacity="1.0"/>
-<rect x="256.9" y="56" width="54.5" height="14" fill="#B1901F" fill-opacity="0.8"/>
+<rect x="22.0" y="56" width="233.5" height="14" fill="#B1901F" fill-opacity="1.0"/>
+<rect x="257.0" y="56" width="54.4" height="14" fill="#B1901F" fill-opacity="0.8"/>
 <rect x="312.9" y="56" width="52.3" height="14" fill="#B1901F" fill-opacity="0.64"/>
 <rect x="366.7" y="56" width="10.6" height="14" fill="#B1901F" fill-opacity="0.5"/>
 <rect x="378.9" y="56" width="8.5" height="14" fill="#B1901F" fill-opacity="0.38"/>
