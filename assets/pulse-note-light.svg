@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 114" width="400" height="114" role="img" aria-label="Pulse note">
+<g fill-opacity="0.78">
+<text x="200" y="18" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><tspan font-weight="400" font-style="normal" fill="#2B2410">An ICU bedside monitor driven by my real</tspan></text>
+<text x="200" y="38" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><tspan font-weight="400" font-style="normal" fill="#2B2410">GitHub activity. It behaves like a real heart:</tspan></text>
+<text x="200" y="58" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><tspan font-weight="400" font-style="normal" fill="#2B2410">it rests while I'm idle, speeds up while I</tspan></text>
+<text x="200" y="78" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><tspan font-weight="400" font-style="normal" fill="#2B2410">work, and recovers afterwards. Updates every</tspan></text>
+<text x="200" y="98" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><tspan font-weight="400" font-style="normal" fill="#2B2410">~5 minutes via GitHub Actions.</tspan></text>
+</g>
+</svg>
