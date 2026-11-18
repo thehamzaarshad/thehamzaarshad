@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 34" width="176" height="34" role="img" aria-label="FOLLOWERS 100">
-<clipPath id="bc"><rect x="1" y="1" width="174" height="32" rx="10"/></clipPath>
-<g clip-path="url(#bc)"><rect width="176" height="34" fill="#2C1F2B"/><rect x="121" width="54" height="34" fill="#DCA54C"/></g>
-<rect x="1" y="1" width="174" height="32" rx="10" fill="none" stroke="#4F3B3A" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 34" width="166" height="34" role="img" aria-label="FOLLOWERS 99">
+<clipPath id="bc"><rect x="1" y="1" width="164" height="32" rx="10"/></clipPath>
+<g clip-path="url(#bc)"><rect width="166" height="34" fill="#2C1F2B"/><rect x="121" width="45" height="34" fill="#DCA54C"/></g>
+<rect x="1" y="1" width="164" height="32" rx="10" fill="none" stroke="#4F3B3A" stroke-width="2"/>
 <g transform="translate(13 9) scale(.95)" stroke="#DCA54C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="8" cy="6" r="3.6"/><path d="M1.5 18c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></g>
 <text x="36" y="21.5" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#DCA54C" text-anchor="start" letter-spacing="2.2">FOLLOWERS</text>
-<text x="148.64999999999998" y="22" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1A160C" text-anchor="middle" letter-spacing="1.2">100</text>
+<text x="143.89999999999998" y="22" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1A160C" text-anchor="middle" letter-spacing="1.2">99</text>
 </svg>
