@@ -6,17 +6,17 @@
 <clipPath id="lb"><rect x="22" y="56" width="376" height="14" rx="7"/></clipPath>
 <rect x="22" y="56" width="376" height="14" rx="7" fill="#E8DFC0"/>
 <g clip-path="url(#lb)">
-<rect x="22.0" y="56" width="233.5" height="14" fill="#B1901F" fill-opacity="1.0"/>
-<rect x="257.0" y="56" width="54.3" height="14" fill="#B1901F" fill-opacity="0.8"/>
-<rect x="312.9" y="56" width="52.3" height="14" fill="#B1901F" fill-opacity="0.64"/>
+<rect x="22.0" y="56" width="233.3" height="14" fill="#B1901F" fill-opacity="1.0"/>
+<rect x="256.8" y="56" width="54.6" height="14" fill="#B1901F" fill-opacity="0.8"/>
+<rect x="312.9" y="56" width="52.2" height="14" fill="#B1901F" fill-opacity="0.64"/>
 <rect x="366.6" y="56" width="10.6" height="14" fill="#B1901F" fill-opacity="0.5"/>
-<rect x="378.8" y="56" width="8.5" height="14" fill="#B1901F" fill-opacity="0.38"/>
-<rect x="388.8" y="56" width="3.9" height="14" fill="#B1901F" fill-opacity="0.28"/>
+<rect x="378.7" y="56" width="8.5" height="14" fill="#B1901F" fill-opacity="0.38"/>
+<rect x="388.7" y="56" width="3.9" height="14" fill="#B1901F" fill-opacity="0.28"/>
 <rect x="394.1" y="56" width="2.4" height="14" fill="#B1901F" fill-opacity="0.2"/>
 </g>
 <circle cx="27.0" cy="98" r="5" fill="#B1901F" fill-opacity="1.0"/>
 <text x="40.0" y="102" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#2B2410" text-anchor="start">HTML</text>
-<text x="196.0" y="102" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7A6A3A" text-anchor="end">62.5%</text>
+<text x="196.0" y="102" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7A6A3A" text-anchor="end">62.4%</text>
 <circle cx="219.0" cy="98" r="5" fill="#B1901F" fill-opacity="0.8"/>
 <text x="232.0" y="102" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#2B2410" text-anchor="start">JavaScript</text>
 <text x="388.0" y="102" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7A6A3A" text-anchor="end">14.9%</text>
