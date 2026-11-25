@@ -102,19 +102,22 @@
 
 <a href="https://github.com/thehamzaarshad/thehamzaarshad"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-0-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/card-projects-0-light.svg" alt="Contribution Pulse" width="49%" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-0-light.svg" alt="Contribution Pulse" width="380" />
 </picture></a>
+
 <a href="https://github.com/thehamzaarshad/muslim-pro-ai"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-1-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/card-projects-1-light.svg" alt="Muslim Pro AI" width="49%" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-1-light.svg" alt="Muslim Pro AI" width="380" />
 </picture></a>
+
 <a href="https://github.com/thehamzaarshad/volblock"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-2-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/card-projects-2-light.svg" alt="VolBlock" width="49%" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-2-light.svg" alt="VolBlock" width="380" />
 </picture></a>
+
 <a href="https://github.com/thehamzaarshad/al-quran-majeed-webview"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-3-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/card-projects-3-light.svg" alt="Al-Quran Majeed WebView" width="49%" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-3-light.svg" alt="Al-Quran Majeed WebView" width="380" />
 </picture></a>
 
 </div>
@@ -145,12 +148,13 @@
 
 </div>
 
-<div align="center">
-
-<picture>
+<details>
+<summary><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-vitals-guide-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/heading-vitals-guide-light.svg" alt="How to read my vitals" height="34" />
-</picture>
+</picture></summary>
+
+<div align="center">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/vitals-guide-dark.svg" />
@@ -158,6 +162,8 @@
 </picture>
 
 </div>
+
+</details>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/divider-dark.svg" />
