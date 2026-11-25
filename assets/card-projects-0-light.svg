@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 115" width="380" height="115" role="img" aria-label="Contribution Pulse">
+<rect x="1" y="1" width="378" height="113" rx="18" fill="#F9F6EE" stroke="#E8DFC0" stroke-width="2"/>
+<rect x="354" y="16" width="8" height="8" fill="#B1901F" transform="rotate(45 358 20)"/>
+<text x="22" y="36" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="15" fill="#B1901F">Contribution Pulse</text>
+<text x="22" y="59" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">ICU-style bedside monitor driven by my real</text>
+<text x="22" y="76" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">GitHub activity, updated every ~5 minutes via</text>
+<text x="22" y="93" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">GitHub Actions</text>
+</svg>

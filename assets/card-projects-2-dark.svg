@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 115" width="380" height="115" role="img" aria-label="VolBlock">
+<rect x="1" y="1" width="378" height="113" rx="18" fill="#2C1F2B" stroke="#4F3B3A" stroke-width="2"/>
+<rect x="354" y="16" width="8" height="8" fill="#DCA54C" transform="rotate(45 358 20)"/>
+<text x="22" y="36" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="15" fill="#DCA54C">VolBlock</text>
+<text x="22" y="59" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#E8C55A">Android Accessibility Service that blocks the</text>
+<text x="22" y="76" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#E8C55A">volume keys</text>
+</svg>

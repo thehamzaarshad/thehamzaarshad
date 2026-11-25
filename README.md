@@ -91,6 +91,43 @@
 
 <h3 align="center">
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-sec-projects-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/heading-sec-projects-light.svg" alt="Projects" height="48" />
+</picture>
+</h3>
+
+</div>
+
+<div align="center">
+
+<a href="https://github.com/thehamzaarshad/thehamzaarshad"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-0-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-0-light.svg" alt="Contribution Pulse" width="49%" />
+</picture></a>
+<a href="https://github.com/thehamzaarshad/muslim-pro-ai"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-1-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-1-light.svg" alt="Muslim Pro AI" width="49%" />
+</picture></a>
+<a href="https://github.com/thehamzaarshad/volblock"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-2-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-2-light.svg" alt="VolBlock" width="49%" />
+</picture></a>
+<a href="https://github.com/thehamzaarshad/al-quran-majeed-webview"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-3-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/card-projects-3-light.svg" alt="Al-Quran Majeed WebView" width="49%" />
+</picture></a>
+
+</div>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/divider-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/divider-light.svg" alt="" width="100%" />
+</picture>
+
+<div align="center">
+
+<h3 align="center">
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-contribution-pulse-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/heading-contribution-pulse-light.svg" alt="Contribution Pulse" height="48" />
 </picture>
