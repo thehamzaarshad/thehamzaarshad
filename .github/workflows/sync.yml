@@ -58,6 +58,7 @@ jobs:
         run: |
           mkdir -p static/assets
           cp ../pub/assets/*.svg static/assets/
+          cp ../pub/assets/*.json static/assets/ 2>/dev/null || true
           npm ci --silent
           npm run build --silent
 
