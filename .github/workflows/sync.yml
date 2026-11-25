@@ -2,7 +2,7 @@ name: Sync
 # Har 5 min: ECG + saare SVG + README + website. Code private repo "Site" mein hai.
 on:
   schedule:
-    - cron: "*/* * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
