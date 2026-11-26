@@ -67,17 +67,13 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-github-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/social-github-light.svg" alt="Github" />
 </picture></a>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-discord-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/social-discord-light.svg" alt="Discord" />
-</picture>
+<a href="https://wa.me/923400129843"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-whatsapp-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/social-whatsapp-light.svg" alt="Whatsapp" />
+</picture></a>
 <a href="https://thehamzaarshad.github.io"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-website-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/social-website-light.svg" alt="Website" />
-</picture></a>
-<a href="https://facebook.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-facebook-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/social-facebook-light.svg" alt="Facebook" />
 </picture></a>
 
 </div>
