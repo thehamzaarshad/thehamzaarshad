@@ -10,6 +10,11 @@
   <img src="https://thehamzaarshad.github.io/assets/typing-light.svg" alt="Assalam-o-Alaikum!" />
 </picture>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/avatar-dark.svg?v=827e2ff1" />
+  <img src="https://thehamzaarshad.github.io/assets/avatar-light.svg?v=827e2ff1" alt="Hamza Arshad" width="112" height="112" />
+</picture>
+
 <a href="https://github.com/thehamzaarshad?tab=repositories"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-stars-dark.svg?v=1a4ea803" />
   <img src="https://thehamzaarshad.github.io/assets/stat-stars-light.svg?v=38391070" alt="GitHub stars" />
@@ -190,8 +195,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=a831d0a8" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=25b580e3" alt="GitHub contribution streak" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=c70b84c4" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=e9071dd3" alt="GitHub contribution streak" width="420" />
 </picture></a>
 <br/>
 <a href="https://github.com/thehamzaarshad"><picture>
@@ -216,8 +221,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=b3c39ce1" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=104c6394" alt="GitHub contributions, last 31 days" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=fdffb377" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=75ef0564" alt="GitHub contributions, last 31 days" width="420" />
 </picture></a>
 
 </div>
