@@ -67,14 +67,10 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-github-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/social-github-light.svg" alt="Github" />
 </picture></a>
-<a href="mailto:hamzaofficial4726@gmail.com"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-email-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/social-email-light.svg" alt="Email" />
-</picture></a>
-<a href="https://wa.me/923400129843"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-whatsapp-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/social-whatsapp-light.svg" alt="Whatsapp" />
-</picture></a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-discord-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/social-discord-light.svg" alt="Discord" />
+</picture>
 <a href="https://thehamzaarshad.github.io"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-website-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/social-website-light.svg" alt="Website" />
