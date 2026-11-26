@@ -138,8 +138,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/details-education-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/details-education-light.svg" alt="Education" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/details-education-dark.svg?v=2" />
+  <img src="https://thehamzaarshad.github.io/assets/details-education-light.svg?v=2" alt="Education" width="380" />
 </picture>
 
 </div>
