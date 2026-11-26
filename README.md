@@ -151,7 +151,7 @@
 <details>
 <summary><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-vitals-guide-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/heading-vitals-guide-light.svg" alt="How to read my vitals" height="34" />
+  <img src="https://thehamzaarshad.github.io/assets/heading-vitals-guide-light.svg" alt="How to read my vitals" width="380" align="absmiddle" />
 </picture></summary>
 
 <div align="center">

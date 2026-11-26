@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 936" width="380" height="936" role="img" aria-label="Vitals guide">
 <rect x="1" y="1" width="378" height="934" rx="18" fill="#2C1F2B" stroke="#4F3B3A" stroke-width="2"/>
-<text x="22" y="28" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#F2E6C9" fill-opacity="0.78">Live reading, updated 26 Nov, 06:57 PKT</text>
+<text x="22" y="28" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#F2E6C9" fill-opacity="0.78">Live reading, updated 26 Nov, 10:12 PKT</text>
 <rect x="14" y="44" width="352" height="121" rx="12" fill="none" stroke="#4F3B3A" stroke-width="1.5"/>
 <text x="28" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#F2E6C9">HR (BPM)</text>
-<text x="352" y="74" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">84</text>
+<text x="352" y="74" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">89</text>
 <text x="28" y="96" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">Live effort. Rests at ~70. Every recent</tspan></text>
 <text x="28" y="115" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">event (push, PR, review, issue) ramps HR</tspan></text>
 <text x="28" y="134" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">up toward ~130 within minutes, and it</tspan></text>
 <text x="28" y="153" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">recovers over ~35 minutes after I stop</tspan></text>
 <rect x="14" y="175" width="352" height="102" rx="12" fill="none" stroke="#4F3B3A" stroke-width="1.5"/>
 <text x="28" y="203" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#F2E6C9">SpO2 (%)</text>
-<text x="352" y="205" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">99</text>
+<text x="352" y="205" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">98</text>
 <text x="28" y="227" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">Oxygen saturation. Healthy 97-99%, dips</tspan></text>
 <text x="28" y="246" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">about 1% at full effort. Consistency</tspan></text>
 <text x="28" y="265" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">(active days) nudges it slightly</tspan></text>
 <rect x="14" y="287" width="352" height="102" rx="12" fill="none" stroke="#4F3B3A" stroke-width="1.5"/>
 <text x="28" y="315" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#F2E6C9">NIBP (mmHg)</text>
-<text x="352" y="317" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">126/77</text>
+<text x="352" y="317" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">124/76</text>
 <text x="28" y="339" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">Blood pressure. ~118/76 at rest. Systolic</tspan></text>
 <text x="28" y="358" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">rises up to ~148 while working, diastolic</tspan></text>
 <text x="28" y="377" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">barely moves</tspan></text>
 <rect x="14" y="399" width="352" height="102" rx="12" fill="none" stroke="#4F3B3A" stroke-width="1.5"/>
 <text x="28" y="427" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#F2E6C9">RESP (rpm)</text>
-<text x="352" y="429" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">16</text>
+<text x="352" y="429" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#DCA54C">17</text>
 <text x="28" y="451" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">Breathing. 14 at rest, up to 24 while</tspan></text>
 <text x="28" y="470" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">working. The breathing sway on the ECG</tspan></text>
 <text x="28" y="489" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#F2E6C9">follows it</tspan></text>
