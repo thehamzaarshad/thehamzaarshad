@@ -38,22 +38,6 @@ jobs:
       - name: SVGs + README
         run: python3 site/scripts/gen_assets.py --site site --out pub/assets --readme pub/README.md --json site/src/lib/generated.json
 
-      - name: Commit README + assets
-        working-directory: pub
-        run: |
-          git config user.name "sync-bot"
-          git config user.email "sync-bot@users.noreply.github.com"
-          git add -A README.md assets
-          git diff --cached --quiet && exit 0
-          git commit -q -m "sync: assets + README"
-          ok=0
-          for i in 1 2 3; do
-            if git pull --rebase -X theirs -q && git push -q; then ok=1; break; fi
-            git rebase --abort 2>/dev/null || true
-            sleep 5
-          done
-          [ "$ok" = 1 ]
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -69,6 +53,15 @@ jobs:
           npm ci --silent
           npm run build --silent
 
+      - name: CNAME
+        working-directory: site
+        run: |
+          host=$(grep -m1 '^site_url:' profile.txt | sed -E 's|^site_url:[[:space:]]*https?://||; s|/.*||; s|[[:space:]]*$||')
+          case "$host" in
+            ""|*.github.io) echo "CNAME: github.io, koi custom domain nahi" ;;
+            *) echo "$host" > build/CNAME; echo "CNAME: $host" ;;
+          esac
+
       - uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
@@ -77,3 +70,20 @@ jobs:
           publish_dir: ./site/build
           force_orphan: true
           commit_message: "deploy"
+
+      - name: Commit README + assets
+        if: always()
+        working-directory: pub
+        run: |
+          git config user.name "sync-bot"
+          git config user.email "sync-bot@users.noreply.github.com"
+          git add -A README.md assets
+          git diff --cached --quiet && exit 0
+          git commit -q -m "sync: assets + README"
+          ok=0
+          for i in 1 2 3; do
+            if git pull --rebase -X theirs -q && git push -q; then ok=1; break; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          [ "$ok" = 1 ]
