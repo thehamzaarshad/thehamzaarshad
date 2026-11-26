@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 144" width="800" height="144" role="img" aria-label="details">
+<rect x="1" y="1" width="798" height="142" rx="22" fill="#F9F6EE" stroke="#E8DFC0" stroke-width="2"/>
+<text x="28" y="41" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="12" letter-spacing=".8" fill="#B1901F">DEGREE</text>
+<text x="230" y="41" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#8A6D12">Matric / FSc / BS ...</text>
+<rect x="24" y="54" width="752" height="1" fill="#E8DFC0"/>
+<text x="28" y="77" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="12" letter-spacing=".8" fill="#B1901F">INSTITUTE</text>
+<text x="230" y="77" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#8A6D12">...</text>
+<rect x="24" y="90" width="752" height="1" fill="#E8DFC0"/>
+<text x="28" y="113" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="12" letter-spacing=".8" fill="#B1901F">YEAR</text>
+<text x="230" y="113" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#8A6D12">2022 - 2026</text>
+</svg>
