@@ -3,7 +3,7 @@
 <polygon points="22,27 34,27 28,37" fill="#B1901F"/>
 <g transform="translate(42 22) scale(1.1)"><path d="M1 10h4l2-5.5 4 11 2-5.5h6" stroke="#B1901F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
 <text x="72" y="38" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="600" font-size="17" fill="#B1901F">How to read my vitals</text>
-<text x="22" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 26 Nov, 20:27 PKT</text>
+<text x="22" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 26 Nov, 21:01 PKT</text>
 <rect x="14" y="88" width="352" height="121" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="116" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HR (BPM)</text>
 <text x="352" y="118" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">89</text>
@@ -19,19 +19,19 @@
 <text x="28" y="309" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">(active days) nudges it slightly</tspan></text>
 <rect x="14" y="331" width="352" height="102" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="359" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">NIBP (mmHg)</text>
-<text x="352" y="361" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">130/80</text>
+<text x="352" y="361" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">125/80</text>
 <text x="28" y="383" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Blood pressure. ~118/76 at rest. Systolic</tspan></text>
 <text x="28" y="402" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">rises up to ~148 while working, diastolic</tspan></text>
 <text x="28" y="421" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">barely moves</tspan></text>
 <rect x="14" y="443" width="352" height="102" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="471" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">RESP (rpm)</text>
-<text x="352" y="473" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">17</text>
+<text x="352" y="473" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">18</text>
 <text x="28" y="495" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Breathing. 14 at rest, up to 24 while</tspan></text>
 <text x="28" y="514" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">working. The breathing sway on the ECG</tspan></text>
 <text x="28" y="533" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">follows it</tspan></text>
 <rect x="14" y="555" width="352" height="83" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="583" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HRV (RMSSD ms)</text>
-<text x="352" y="585" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">43</text>
+<text x="352" y="585" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">45</text>
 <text x="28" y="607" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Variability. 35-60 ms at rest depending on</tspan></text>
 <text x="28" y="626" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">consistency, drops while working</tspan></text>
 <rect x="14" y="648" width="352" height="102" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
