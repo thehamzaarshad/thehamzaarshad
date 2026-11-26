@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 936" width="380" height="936" role="img" aria-label="Vitals guide">
 <rect x="1" y="1" width="378" height="934" rx="18" fill="#F9F6EE" stroke="#E8DFC0" stroke-width="2"/>
-<text x="22" y="28" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 26 Nov, 10:12 PKT</text>
+<text x="22" y="28" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 26 Nov, 10:17 PKT</text>
 <rect x="14" y="44" width="352" height="121" rx="12" fill="none" stroke="#E8DFC0" stroke-width="1.5"/>
 <text x="28" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HR (BPM)</text>
 <text x="352" y="74" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">89</text>
@@ -16,7 +16,7 @@
 <text x="28" y="265" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">(active days) nudges it slightly</tspan></text>
 <rect x="14" y="287" width="352" height="102" rx="12" fill="none" stroke="#E8DFC0" stroke-width="1.5"/>
 <text x="28" y="315" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">NIBP (mmHg)</text>
-<text x="352" y="317" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">124/76</text>
+<text x="352" y="317" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">130/77</text>
 <text x="28" y="339" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Blood pressure. ~118/76 at rest. Systolic</tspan></text>
 <text x="28" y="358" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">rises up to ~148 while working, diastolic</tspan></text>
 <text x="28" y="377" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">barely moves</tspan></text>
@@ -28,7 +28,7 @@
 <text x="28" y="489" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">follows it</tspan></text>
 <rect x="14" y="511" width="352" height="83" rx="12" fill="none" stroke="#E8DFC0" stroke-width="1.5"/>
 <text x="28" y="539" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HRV (RMSSD ms)</text>
-<text x="352" y="541" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">46</text>
+<text x="352" y="541" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">44</text>
 <text x="28" y="563" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Variability. 35-60 ms at rest depending on</tspan></text>
 <text x="28" y="582" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">consistency, drops while working</tspan></text>
 <rect x="14" y="604" width="352" height="102" rx="12" fill="none" stroke="#E8DFC0" stroke-width="1.5"/>
