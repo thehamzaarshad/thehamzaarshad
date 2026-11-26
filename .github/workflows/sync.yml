@@ -44,8 +44,13 @@ jobs:
           git add -A README.md assets
           git diff --cached --quiet && exit 0
           git commit -q -m "sync: assets + README"
-          git pull --rebase -q
-          git push -q
+          ok=0
+          for i in 1 2 3; do
+            if git pull --rebase -X theirs -q && git push -q; then ok=1; break; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          [ "$ok" = 1 ]
 
       - uses: actions/setup-node@v4
         with:
