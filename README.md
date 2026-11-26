@@ -148,22 +148,14 @@
 
 </div>
 
-<details>
-<summary><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-vitals-guide-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/heading-vitals-guide-light.svg" alt="How to read my vitals" width="380" align="absmiddle" />
-</picture></summary>
-
 <div align="center">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/vitals-guide-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/vitals-guide-light.svg" alt="Vitals guide" width="380" />
+  <img src="https://thehamzaarshad.github.io/assets/vitals-guide-light.svg" alt="How to read my vitals" width="380" />
 </picture>
 
 </div>
-
-</details>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/divider-dark.svg" />
