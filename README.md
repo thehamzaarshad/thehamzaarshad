@@ -75,6 +75,10 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-website-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/social-website-light.svg" alt="Website" />
 </picture></a>
+<a href="https://facebook.com/thehamzaarshad"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/social-facebook-dark.svg" />
+  <img src="https://thehamzaarshad.github.io/assets/social-facebook-light.svg" alt="Facebook" />
+</picture></a>
 
 </div>
 
