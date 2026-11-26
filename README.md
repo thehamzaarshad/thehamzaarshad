@@ -104,17 +104,14 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-0-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/card-projects-0-light.svg" alt="Contribution Pulse" width="380" />
 </picture></a>
-
 <a href="https://github.com/thehamzaarshad/muslim-pro-ai"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-1-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/card-projects-1-light.svg" alt="Muslim Pro AI" width="380" />
 </picture></a>
-
 <a href="https://github.com/thehamzaarshad/volblock"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-2-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/card-projects-2-light.svg" alt="VolBlock" width="380" />
 </picture></a>
-
 <a href="https://github.com/thehamzaarshad/al-quran-majeed-webview"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/card-projects-3-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/card-projects-3-light.svg" alt="Al-Quran Majeed WebView" width="380" />
