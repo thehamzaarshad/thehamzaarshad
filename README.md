@@ -128,31 +128,6 @@
 
 <h3 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-sec-education-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/heading-sec-education-light.svg" alt="Education" height="48" />
-</picture>
-</h3>
-
-</div>
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/details-education-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/details-education-light.svg" alt="Education" width="100%" />
-</picture>
-
-</div>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/divider-dark.svg" />
-  <img src="https://thehamzaarshad.github.io/assets/divider-light.svg" alt="" width="100%" />
-</picture>
-
-<div align="center">
-
-<h3 align="center">
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/heading-contribution-pulse-dark.svg" />
   <img src="https://thehamzaarshad.github.io/assets/heading-contribution-pulse-light.svg" alt="Contribution Pulse" height="48" />
 </picture>
