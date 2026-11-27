@@ -3,17 +3,17 @@
 <polygon points="22,27 34,27 28,37" fill="#B1901F"/>
 <g transform="translate(42 22) scale(1.1)"><path d="M1 10h4l2-5.5 4 11 2-5.5h6" stroke="#B1901F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
 <text x="72" y="38" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="600" font-size="17" fill="#B1901F">How to read my vitals</text>
-<text x="22" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 27 Nov, 23:05 PKT</text>
+<text x="22" y="72" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#2B2410" fill-opacity="0.78">Live reading, updated 27 Nov, 23:09 PKT</text>
 <rect x="14" y="88" width="352" height="121" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="116" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HR (BPM)</text>
-<text x="352" y="118" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">87</text>
+<text x="352" y="118" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">89</text>
 <text x="28" y="140" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Live effort. Rests at ~70. Every recent</tspan></text>
 <text x="28" y="159" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">event (push, PR, review, issue) ramps HR</tspan></text>
 <text x="28" y="178" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">up toward ~130 within minutes, and it</tspan></text>
 <text x="28" y="197" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">recovers over ~35 minutes after I stop</tspan></text>
 <rect x="14" y="219" width="352" height="102" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="247" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">SpO2 (%)</text>
-<text x="352" y="249" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">99</text>
+<text x="352" y="249" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">98</text>
 <text x="28" y="271" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Oxygen saturation. Healthy 97-99%, dips</tspan></text>
 <text x="28" y="290" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">about 1% at full effort. Consistency</tspan></text>
 <text x="28" y="309" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">(active days) nudges it slightly</tspan></text>
@@ -31,7 +31,7 @@
 <text x="28" y="533" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">follows it</tspan></text>
 <rect x="14" y="555" width="352" height="83" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
 <text x="28" y="583" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="14.5" fill="#2B2410">HRV (RMSSD ms)</text>
-<text x="352" y="585" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">46</text>
+<text x="352" y="585" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="21" fill="#B1901F">45</text>
 <text x="28" y="607" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">Variability. 35-60 ms at rest depending on</tspan></text>
 <text x="28" y="626" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill-opacity="0.85"><tspan font-weight="400" font-style="normal" fill="#2B2410">consistency, drops while working</tspan></text>
 <rect x="14" y="648" width="352" height="102" rx="12" fill="none" stroke="#B1901F" stroke-opacity="0.2" stroke-width="1.5"/>
