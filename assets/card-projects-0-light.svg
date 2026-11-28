@@ -3,6 +3,6 @@
 <rect x="354" y="16" width="8" height="8" fill="#B1901F" transform="rotate(45 358 20)"/>
 <text x="22" y="36" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="15" fill="#B1901F">Contribution Pulse</text>
 <text x="22" y="59" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">ICU-style bedside monitor driven by my real</text>
-<text x="22" y="76" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">GitHub activity, updated every ~5 minutes via</text>
-<text x="22" y="93" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">GitHub Actions</text>
+<text x="22" y="76" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">GitHub activity, refreshed several times a day</text>
+<text x="22" y="93" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8A6D12">via GitHub Actions</text>
 </svg>
