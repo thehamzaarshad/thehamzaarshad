@@ -170,13 +170,13 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=2f91ec73" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=1f15de26" alt="GitHub contribution streak" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=ab2d85a6" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=97d7685d" alt="GitHub contribution streak" width="420" />
 </picture></a>
 <br/>
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-langs-dark.svg?v=5e3683d5" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-langs-light.svg?v=482bc1e8" alt="Most used programming languages" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-langs-dark.svg?v=ee279a26" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-langs-light.svg?v=84b290ec" alt="Most used programming languages" width="420" />
 </picture></a>
 
 </div>
@@ -196,8 +196,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=91823611" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=05a56d98" alt="GitHub contributions, last 31 days" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=df4efd71" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=f69087f0" alt="GitHub contributions, last 31 days" width="420" />
 </picture></a>
 
 </div>
