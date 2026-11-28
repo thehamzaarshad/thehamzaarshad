@@ -20,8 +20,8 @@
   <img src="https://thehamzaarshad.github.io/assets/stat-stars-light.svg?v=38391070" alt="GitHub stars" />
 </picture></a>
 <a href="https://github.com/thehamzaarshad?tab=followers"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-followers-dark.svg?v=d12f05e8" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-followers-light.svg?v=c2cf0ce8" alt="GitHub followers" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-followers-dark.svg?v=2801d755" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-followers-light.svg?v=dceaab89" alt="GitHub followers" />
 </picture></a>
 
 </div>
@@ -170,8 +170,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=530b5c7e" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=f291ce33" alt="GitHub contribution streak" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=7e6a3fff" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=845c3d3f" alt="GitHub contribution streak" width="420" />
 </picture></a>
 <br/>
 <a href="https://github.com/thehamzaarshad"><picture>
@@ -196,8 +196,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=bde9b3d0" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=86ed14fa" alt="GitHub contributions, last 31 days" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=0fefe39f" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=b8f3f09e" alt="GitHub contributions, last 31 days" width="420" />
 </picture></a>
 
 </div>
