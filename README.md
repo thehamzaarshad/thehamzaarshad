@@ -170,8 +170,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=2c50538e" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=76055193" alt="GitHub contribution streak" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-streak-dark.svg?v=b0405f8a" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-streak-light.svg?v=1f72be4d" alt="GitHub contribution streak" width="420" />
 </picture></a>
 <br/>
 <a href="https://github.com/thehamzaarshad"><picture>
@@ -196,8 +196,8 @@
 </h3>
 
 <a href="https://github.com/thehamzaarshad"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=996f7d6d" />
-  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=3f0d3b03" alt="GitHub contributions, last 31 days" width="420" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://thehamzaarshad.github.io/assets/stat-graph-dark.svg?v=facbbaae" />
+  <img src="https://thehamzaarshad.github.io/assets/stat-graph-light.svg?v=b5471e8d" alt="GitHub contributions, last 31 days" width="420" />
 </picture></a>
 
 </div>
